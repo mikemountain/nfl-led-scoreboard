@@ -57,7 +57,7 @@ class MainRenderer:
         t.sleep(21600) #sleep 6 hours
 
     def _draw_pregame(self):
-        if self.data.get_schedule() != 0:
+        if self.data.game != 0:
             overview = self.data.game
             gametime = self.data.gametime
             # Center the game time on screen.
@@ -69,8 +69,8 @@ class MainRenderer:
             away_team_logo_pos = self.screen_config.team_logos_pos["1"]['away']
             home_team_logo_pos = self.screen_config.team_logos_pos["1"]['home']
             # Open the logo image file
-            away_team_logo = Image.open('logos/{}.png'.format(self.data.get_teams_info[overview['awayteam']]['shortName']))
-            home_team_logo = Image.open('logos/{}.png'.format(self.data.get_teams_info[overview['hometeam']]['shortName']))
+            away_team_logo = Image.open('logos/{}.png'.format(overview['awayteam'])).resize((23, 23), 1)
+            home_team_logo = Image.open('logos/{}.png'.format(overview['hometeam'])).resize((23, 23), 1)
             # Draw the text on the Data image.
             self.draw.text((22, -1), 'TODAY', font=self.font_mini)
             self.draw.multiline_text((gametime_pos, 5), gametime, fill=(255, 255, 255), font=self.font_mini, align="center")
@@ -78,8 +78,8 @@ class MainRenderer:
             # Put the data on the canvas
             self.canvas.SetImage(self.image, 0, 0)
             # Put the images on the canvas
-            self.canvas.SetImage(away_team_logo.convert("RGB"), away_team_logo_pos["x"], away_team_logo_pos["y"])
-            self.canvas.SetImage(home_team_logo.convert("RGB"), home_team_logo_pos["x"], home_team_logo_pos["y"])
+            self.canvas.SetImage(away_team_logo.convert("RGB"), away_team_logo_pos["x"] + 13, away_team_logo_pos["y"] + 11)
+            self.canvas.SetImage(home_team_logo.convert("RGB"), home_team_logo_pos["x"] - 8, home_team_logo_pos["y"] + 11)
             # Load the canvas on screen.
             self.canvas = self.matrix.SwapOnVSync(self.canvas)
             # Refresh the Data image.
