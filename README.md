@@ -12,7 +12,7 @@ This project and my [other Fantasy Football scoreboard project](https://github.c
 Currently shows the team logos and the game time. Time will always say TODAY to start. Hoping to incorporate projections in future releases.
 
 ### Live scoring updates 
-The score seems to update every 10-60 seconds, with the clock, score, and down/spot info just updating arbitrarily. The API gets checked every 2-5 seconds, but it will lag. Future versions will hopefully try to minimise this by finding a better API to check. The scoreboard will switch through displaying the team with possession ![possession](imgs/scoreboard_possession.jpg), the current down with yards to go ![down](imgs/scoreboard_down.jpg), and where the line of scrimmage is. ![spot](imgs/scoreboard_spot.jpg)
+The score seems to update every 10-60 seconds, with the clock, score, and down/spot info just updating arbitrarily. The API gets checked every 2-5 seconds, but it will lag. Future versions will hopefully try to minimise this by finding a better API to check. The scoreboard will switch through displaying the team with possession (and the team name will turn red in the redzone), ![possession](imgs/scoreboard_possession.jpg) the current down with yards to go, ![down](imgs/scoreboard_down.jpg) and where the line of scrimmage is. ![spot](imgs/scoreboard_spot.jpg)
 
 ### Postgame
 Currently not really working because it'll just skip to the next playoff game, just kind of looks like the pre-game screen but with the final scores. During the regular season, the board will stay in a post-game state until the next week. Loser score will be red, winner green.
@@ -27,7 +27,7 @@ Nothing yet, but I don't see why it wouldn't be added if the stats are there.
 
 Future plans include:
 * add a roadmap
-
+* fix all the half-ass shit that was added in a rush because it's almost the end of the playoffs
 
 ## Installation
 ### Hardware Assembly
