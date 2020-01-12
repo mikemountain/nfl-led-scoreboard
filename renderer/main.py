@@ -170,6 +170,7 @@ class MainRenderer:
                 # this is ugly but I want to replace the possession info with down info and spot info
                 down = None
                 spot = None
+                game_info = None
                 if overview['down']:
                     down = re.sub(r"[a-z]+", "", overview['down']).replace(" ", "")
                 if overview['spot']:
@@ -192,7 +193,9 @@ class MainRenderer:
                 time_period_pos = center_text(self.font_mini.getsize(time_period)[0], 32)
                 score_position = center_text(self.font.getsize(score)[0], 32)
                 quarter_position = center_text(self.font_mini.getsize(quarter)[0], 32)
-                info_pos = center_text(self.font_mini.getsize(game_info)[0], 32)
+                if game_info:
+                    info_pos = center_text(self.font_mini.getsize(game_info)[0], 32)
+                    self.draw.multiline_text((info_pos, 12), game_info, fill=pos_colour, font=self.font_mini, align="center")
                 # Set the position of each logo on screen.
                 awaysize = self.screen_config.team_logos_pos[overview['awayteam']]['size']
                 homesize = self.screen_config.team_logos_pos[overview['hometeam']]['size']
@@ -205,7 +208,6 @@ class MainRenderer:
                 # Draw the text on the Data image.
                 self.draw.multiline_text((quarter_position, 0), quarter, fill=(255, 255, 255), font=self.font_mini, align="center")
                 self.draw.multiline_text((time_period_pos, 6), time_period, fill=(255, 255, 255), font=self.font_mini, align="center")
-                self.draw.multiline_text((info_pos, 12), game_info, fill=pos_colour, font=self.font_mini, align="center")
                 self.draw.multiline_text((score_position, 19), score, fill=(255, 255, 255), font=self.font, align="center")
                 # Put the data on the canvas
                 self.canvas.SetImage(self.image, 0, 0)
