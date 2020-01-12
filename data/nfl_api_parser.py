@@ -12,10 +12,11 @@ def get_game(team_name):
             if team_name in g['shortName']:
                 info = g['competitions'][0]
                 game = {'name': g['shortName'], 'date': g['date'],
-                        'hometeam': info['competitors'][0]['team']['abbreviation'], 'homeid': info['competitors'][0]['id'], 'homescore': info['competitors'][0]['score'],
-                        'awayteam': info['competitors'][1]['team']['abbreviation'], 'awayid': info['competitors'][1]['id'], 'awayscore': info['competitors'][1]['score'],
-                        'time': info['status']['displayClock'], 'quarter': info['status']['period'], 'over': info['status']['completed'],
-                        'redzone': info['situation']['isRedZone'], 'possession': info['status']['possession'], 'state': info['status']['type']['state']}
+                        'hometeam': info['competitors'][0]['team']['abbreviation'], 'homeid': info['competitors'][0]['id'], 'homescore': int(info['competitors'][0]['score']),
+                        'awayteam': info['competitors'][1]['team']['abbreviation'], 'awayid': info['competitors'][1]['id'], 'awayscore': int(info['competitors'][1]['score']),
+                        'down': info.get('situation', {}).get('shortDownDistanceText'), 'spot': info.get('situation', {}).get('possessionText'),
+                        'time': info['status']['displayClock'], 'quarter': info['status']['period'], 'over': info['status']['type']['completed'],
+                        'redzone': info.get('situation', {}).get('isRedZone'), 'possession': info.get('situation', {}).get('possession'), 'state': info['status']['type']['state']}
                 return game
     except requests.exceptions.RequestException:
         print("Error encountered getting game info, can't hit ESPN api")
@@ -33,6 +34,7 @@ def get_all_games():
             game = {'name': g['shortName'], 'date': g['date'],
                     'hometeam': info['competitors'][0]['team']['abbreviation'], 'homeid': info['competitors'][0]['id'], 'homescore': int(info['competitors'][0]['score']),
                     'awayteam': info['competitors'][1]['team']['abbreviation'], 'awayid': info['competitors'][1]['id'], 'awayscore': int(info['competitors'][1]['score']),
+                    'down': info.get('situation', {}).get('shortDownDistanceText'), 'spot': info.get('situation', {}).get('possessionText'),
                     'time': info['status']['displayClock'], 'quarter': info['status']['period'], 'over': info['status']['type']['completed'],
                     'redzone': info.get('situation', {}).get('isRedZone'), 'possession': info.get('situation', {}).get('possession'), 'state': info['status']['type']['state']}
             games[i] = game

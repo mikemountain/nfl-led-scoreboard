@@ -6,6 +6,7 @@ from renderer.screen_config import screenConfig
 from datetime import datetime, timedelta
 import time as t
 import debug
+import re
 
 class MainRenderer:
     def __init__(self, matrix, data):
@@ -94,7 +95,7 @@ class MainRenderer:
             # Refresh the Data image.
             self.image = Image.new('RGB', (self.width, self.height))
             self.draw = ImageDraw.Draw(self.image)
-            t.sleep(5)
+            t.sleep(1)
 
     def _draw_pregame(self):
         if self.data.game != 0:
@@ -138,6 +139,7 @@ class MainRenderer:
         overview = self.data.game
         homescore = overview['homescore']
         awayscore = overview['awayscore']
+        i = 5
         while True:
             # Refresh the data
             if self.data.needs_refresh:
@@ -158,14 +160,39 @@ class MainRenderer:
                 if overview['homescore'] > homescore + 5 or overview['awayscore'] > awayscore + 5:
                    self._draw_goal()
                 # Prepare the data
-                print(overview['quarter'], overview['time'])
                 score = '{}-{}'.format(overview['awayscore'], overview['homescore'])
+                if overview['possession'] == overview['awayid']:
+                    pos = overview['awayteam']
+                else:
+                    pos = overview['hometeam']
                 quarter = str(overview['quarter'])
                 time_period = overview['time']
+                # this is ugly but I want to replace the possession info with down info and spot info
+                down = None
+                spot = None
+                if overview['down']:
+                    down = re.sub(r"[a-z]+", "", overview['down']).replace(" ", "")
+                if overview['spot']:
+                    spot = overview['spot'].replace(" ", "")
+                pos_colour = (255, 255, 255)
+                if i == 3 and pos:
+                    game_info = pos
+                    i = 5
+                    if overview['redzone']:
+                        pos_colour = (255, 25, 25)
+                elif i == 5 and down:
+                    game_info = down
+                    i = 2
+                elif i == 2 and spot:
+                    game_info = spot
+                    i = 3
+                else:
+                    i = 5
                 # Set the position of the information on screen.
                 time_period_pos = center_text(self.font_mini.getsize(time_period)[0], 32)
                 score_position = center_text(self.font.getsize(score)[0], 32)
                 quarter_position = center_text(self.font_mini.getsize(quarter)[0], 32)
+                info_pos = center_text(self.font_mini.getsize(game_info)[0], 32)
                 # Set the position of each logo on screen.
                 awaysize = self.screen_config.team_logos_pos[overview['awayteam']]['size']
                 homesize = self.screen_config.team_logos_pos[overview['hometeam']]['size']
@@ -176,9 +203,10 @@ class MainRenderer:
                 away_team_logo = Image.open('logos/{}.png'.format(overview['awayteam'])).resize((19, 19), 1)
                 home_team_logo = Image.open('logos/{}.png'.format(overview['hometeam'])).resize((19, 19), 1)
                 # Draw the text on the Data image.
-                self.draw.multiline_text((score_position, 19), score, fill=(255, 255, 255), font=self.font, align="center")
                 self.draw.multiline_text((quarter_position, 0), quarter, fill=(255, 255, 255), font=self.font_mini, align="center")
                 self.draw.multiline_text((time_period_pos, 6), time_period, fill=(255, 255, 255), font=self.font_mini, align="center")
+                self.draw.multiline_text((info_pos, 12), game_info, fill=pos_colour, font=self.font_mini, align="center")
+                self.draw.multiline_text((score_position, 19), score, fill=(255, 255, 255), font=self.font, align="center")
                 # Put the data on the canvas
                 self.canvas.SetImage(self.image, 0, 0)
                 # Put the images on the canvas
@@ -197,7 +225,7 @@ class MainRenderer:
                 awayscore = overview['awayscore']
                 homescore = overview['homescore']
                 self.data.needs_refresh = True
-                t.sleep(5)
+                t.sleep(i)
             else:
                 # (Need to make the screen run on it's own) If connection to the API fails, show bottom red line and refresh in 1 min.
                 self.draw.line((0, 0) + (self.width, 0), fill=128)
