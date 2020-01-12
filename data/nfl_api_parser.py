@@ -27,6 +27,7 @@ def get_all_games():
         res = requests.get(URL)
         res = res.json()
         games = {}
+        i = 0
         for g in res['events']:
             info = g['competitions'][0]
             game = {'name': g['shortName'], 'date': g['date'],
@@ -34,8 +35,8 @@ def get_all_games():
                     'awayteam': info['competitors'][1]['team']['abbreviation'], 'awayid': info['competitors'][1]['id'], 'awayscore': info['competitors'][1]['score'],
                     'time': info['status']['displayClock'], 'quarter': info['status']['period'], 'over': info['status']['type']['completed'],
                     'redzone': info.get('situation', {}).get('isRedZone'), 'possession': info.get('situation', {}).get('possession'), 'state': info['status']['type']['state']}
-            games[game['homeid']] = game
-            games[game['awayid']] = game
+            games[i] = game
+            i += 1
         return games
     except requests.exceptions.RequestException:
         print("Error encountered getting game info, can't hit ESPN api")
@@ -45,10 +46,13 @@ def get_all_games():
 def which_playoff_game(games):
     # games should be sorted by date, earliest to latest
     for game in games:
-        if games[game]['state'] == 'in':
+        # testing purposes
+        if games[game]['state'] == 'post':
             return games[game]
-        if games[game]['state'] == 'pre':
-            return games[game]
+        # if games[game]['state'] == 'in':
+        #     return games[game]
+        # if games[game]['state'] == 'pre':
+        #     return games[game]
 
 def is_playoffs():
     try:

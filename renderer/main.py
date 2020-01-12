@@ -62,24 +62,23 @@ class MainRenderer:
             gametime = self.data.gametime
             # Center the game time on screen.
             gametime_pos = center_text(self.font_mini.getsize(gametime)[0], 32)
+            awaysize = self.screen_config.team_logos_pos[overview['awayteam']]['size']
+            homesize = self.screen_config.team_logos_pos[overview['hometeam']]['size']
             # Set the position of each logo
-            # I haven't manually set this stuff yet so they're all gonna use #1
-            # away_team_logo_pos = self.screen_config.team_logos_pos[str(overview['awayteam'])]['away']
-            # home_team_logo_pos = self.screen_config.team_logos_pos[str(overview['hometeam'])]['home']
-            away_team_logo_pos = self.screen_config.team_logos_pos["1"]['away']
-            home_team_logo_pos = self.screen_config.team_logos_pos["1"]['home']
+            away_team_logo_pos = self.screen_config.team_logos_pos[overview['awayteam']]['preaway']
+            home_team_logo_pos = self.screen_config.team_logos_pos[overview['hometeam']]['prehome']
             # Open the logo image file
-            away_team_logo = Image.open('logos/{}.png'.format(overview['awayteam'])).resize((23, 23), 1)
-            home_team_logo = Image.open('logos/{}.png'.format(overview['hometeam'])).resize((23, 23), 1)
+            away_team_logo = Image.open('logos/{}.png'.format(overview['awayteam'])).resize((awaysize, awaysize), 1)
+            home_team_logo = Image.open('logos/{}.png'.format(overview['hometeam'])).resize((homesize, homesize), 1)
             # Draw the text on the Data image.
             self.draw.text((22, -1), 'TODAY', font=self.font_mini)
             self.draw.multiline_text((gametime_pos, 5), gametime, fill=(255, 255, 255), font=self.font_mini, align="center")
-            self.draw.text((25, 13), 'VS', font=self.font)
+            self.draw.text((25, 15), 'VS', font=self.font)
             # Put the data on the canvas
             self.canvas.SetImage(self.image, 0, 0)
             # Put the images on the canvas
-            self.canvas.SetImage(away_team_logo.convert("RGB"), away_team_logo_pos["x"] + 13, away_team_logo_pos["y"] + 11)
-            self.canvas.SetImage(home_team_logo.convert("RGB"), home_team_logo_pos["x"] - 8, home_team_logo_pos["y"] + 11)
+            self.canvas.SetImage(away_team_logo.convert("RGB"), away_team_logo_pos["x"], away_team_logo_pos["y"])
+            self.canvas.SetImage(home_team_logo.convert("RGB"), home_team_logo_pos["x"], home_team_logo_pos["y"])
             # Load the canvas on screen.
             self.canvas = self.matrix.SwapOnVSync(self.canvas)
             # Refresh the Data image.
@@ -116,7 +115,7 @@ class MainRenderer:
                 #         self._draw_goal()
                 # Use this code if you want the goal animation to run for both team's goal.
                 # Run the goal animation if there is a goal.
-                if overview['homescore'] > homescore or overview['awayscore'] > awayscore:
+                if overview['homescore'] > homescore + 5 or overview['awayscore'] > awayscore + 5:
                    self._draw_goal()
                 # Prepare the data
                 print(overview['quarter'], overview['time'])
@@ -128,14 +127,14 @@ class MainRenderer:
                 score_position = center_text(self.font.getsize(score)[0], 32)
                 quarter_position = center_text(self.font_mini.getsize(quarter)[0], 32)
                 # Set the position of each logo on screen.
-                # I haven't manually set this stuff yet so they're all gonna use #1
-                # away_team_logo_pos = self.screen_config.team_logos_pos[str(overview['awayteam'])]['away']
-                # home_team_logo_pos = self.screen_config.team_logos_pos[str(overview['hometeam'])]['home']
-                away_team_logo_pos = self.screen_config.team_logos_pos["1"]['away']
-                home_team_logo_pos = self.screen_config.team_logos_pos["1"]['home']
+                awaysize = self.screen_config.team_logos_pos[overview['awayteam']]['size']
+                homesize = self.screen_config.team_logos_pos[overview['hometeam']]['size']
+                # Set the position of each logo
+                away_team_logo_pos = self.screen_config.team_logos_pos[overview['awayteam']]['away']
+                home_team_logo_pos = self.screen_config.team_logos_pos[overview['hometeam']]['home']
                 # Open the logo image file
-                away_team_logo = Image.open('logos/{}.png'.format(overview['awayteam'])).resize((23, 23), 1)
-                home_team_logo = Image.open('logos/{}.png'.format(overview['hometeam'])).resize((23, 23), 1)
+                away_team_logo = Image.open('logos/{}.png'.format(overview['awayteam'])).resize((awaysize, awaysize), 1)
+                home_team_logo = Image.open('logos/{}.png'.format(overview['hometeam'])).resize((homesize, homesize), 1)
                 # Draw the text on the Data image.
                 self.draw.multiline_text((score_position, 19), score, fill=(255, 255, 255), font=self.font, align="center")
                 self.draw.multiline_text((quarter_position, -1), quarter, fill=(255, 255, 255), font=self.font_mini, align="center")
@@ -143,8 +142,8 @@ class MainRenderer:
                 # Put the data on the canvas
                 self.canvas.SetImage(self.image, 0, 0)
                 # Put the images on the canvas
-                self.canvas.SetImage(away_team_logo.convert("RGB"), away_team_logo_pos["x"] + 13, away_team_logo_pos["y"] - 3)
-                self.canvas.SetImage(home_team_logo.convert("RGB"), home_team_logo_pos["x"] - 8, home_team_logo_pos["y"] - 5)
+                self.canvas.SetImage(away_team_logo.convert("RGB"), away_team_logo_pos["x"], away_team_logo_pos["y"])
+                self.canvas.SetImage(home_team_logo.convert("RGB"), home_team_logo_pos["x"], home_team_logo_pos["y"])
                 # Load the canvas on screen.
                 self.canvas = self.matrix.SwapOnVSync(self.canvas)
                 # Refresh the Data image.
@@ -170,28 +169,31 @@ class MainRenderer:
         if self.data.game != 0:
             overview = self.data.game
             # Prepare the data
-            game_date = '{} {}'.format(month_abbr[self.data.month], self.data.day)
             score = '{}-{}'.format(overview['awayscore'], overview['homescore'])
-            time_period = overview['time']
             # Set the position of the information on screen.
-            game_date_pos = center_text(self.font_mini.getsize(game_date)[0], 32)
-            time_period_pos = center_text(self.font_mini.getsize(time_period)[0], 32)
             score_position = center_text(self.font.getsize(score)[0], 32)
-            # Draw the text on the Data image.
-            away_team_logo_pos = self.screen_config.team_logos_pos["1"]['away']
-            home_team_logo_pos = self.screen_config.team_logos_pos["1"]['home']
+            # awaysize = self.screen_config.team_logos_pos[overview['hometeam']]['size']
+            # homesize = self.screen_config.team_logos_pos[overview['awayteam']]['size']
+            awaysize = self.screen_config.team_logos_pos[overview['awayteam']]['size']
+            homesize = self.screen_config.team_logos_pos[overview['hometeam']]['size']
+            # Set the position of each logo
+            # away_team_logo_pos = self.screen_config.team_logos_pos[overview['hometeam']]['away']
+            # home_team_logo_pos = self.screen_config.team_logos_pos[overview['awayteam']]['home']
+            away_team_logo_pos = self.screen_config.team_logos_pos[overview['awayteam']]['away']
+            home_team_logo_pos = self.screen_config.team_logos_pos[overview['hometeam']]['home']
             # Open the logo image file
-            away_team_logo = Image.open('logos/{}.png'.format(overview['awayteam'])).resize((23, 23), 1)
-            home_team_logo = Image.open('logos/{}.png'.format(overview['hometeam'])).resize((23, 23), 1)
+            # away_team_logo = Image.open('logos/{}.png'.format(overview['hometeam'])).resize((awaysize, awaysize), 1)
+            # home_team_logo = Image.open('logos/{}.png'.format(overview['awayteam'])).resize((homesize, homesize), 1)
+            away_team_logo = Image.open('logos/{}.png'.format(overview['awayteam'])).resize((awaysize, awaysize), 1)
+            home_team_logo = Image.open('logos/{}.png'.format(overview['hometeam'])).resize((homesize, homesize), 1)
             # Draw the text on the Data image.
             self.draw.multiline_text((score_position, 19), score, fill=(255, 255, 255), font=self.font, align="center")
-            self.draw.multiline_text((quarter_position, -1), quarter, fill=(255, 255, 255), font=self.font_mini, align="center")
-            self.draw.multiline_text((time_period_pos, 5), time_period, fill=(255, 255, 255), font=self.font_mini, align="center")
+            self.draw.multiline_text((26, 0), "END", fill=(255, 255, 255), font=self.font_mini,align="center")
             # Put the data on the canvas
             self.canvas.SetImage(self.image, 0, 0)
             # Put the images on the canvas
-            self.canvas.SetImage(away_team_logo.convert("RGB"), away_team_logo_pos["x"] + 13, away_team_logo_pos["y"] - 3)
-            self.canvas.SetImage(home_team_logo.convert("RGB"), home_team_logo_pos["x"] - 8, home_team_logo_pos["y"] - 5)
+            self.canvas.SetImage(away_team_logo.convert("RGB"), away_team_logo_pos["x"], away_team_logo_pos["y"])
+            self.canvas.SetImage(home_team_logo.convert("RGB"), home_team_logo_pos["x"], home_team_logo_pos["y"])
             # Load the canvas on screen.
             self.canvas = self.matrix.SwapOnVSync(self.canvas)
             # Refresh the Data image.
@@ -204,7 +206,7 @@ class MainRenderer:
             t.sleep(60)  # sleep for 1 min
 
     def _draw_goal(self):
-        debug.info('SCOOOOOOOORE, MAY DAY, MAY DAY, MAY DAY, MAY DAAAAAAAAY - Rick Jeanneret')
+        debug.info('TD')
         # Load the gif file
         im = Image.open("Assets/goal_light_animation.gif")
         # Set the frame index to 0
