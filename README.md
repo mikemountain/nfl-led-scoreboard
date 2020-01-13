@@ -26,7 +26,8 @@ Nothing yet, but I don't see why it wouldn't be added if the stats are there.
 ## Roadmap
 
 Future plans include:
-* add a roadmap
+* there's a decent amount of empty space on the scoreboard; the scores could be centred below the team pictures and the middle space could be used to constantly show the down/spot/possession
+* there's still a lot to be done to track a user's favourite team and only show info pertinent to their team (non-playoff mode)
 * fix all the half-ass shit that was added in a rush because it's almost the end of the playoffs
 
 ## Installation

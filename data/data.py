@@ -31,7 +31,7 @@ class Data:
     def choose_game(self):
         if self.playoffs:
             games = nflparser.get_all_games()
-            return nflparser.which_playoff_game(games)
+            return nflparser.which_playoff_game(games, self.game)
         else:
             return nflparser.get_game(self.fav_team)
 

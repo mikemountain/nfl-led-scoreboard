@@ -158,7 +158,9 @@ class MainRenderer:
                 # Use this code if you want the goal animation to run for both team's goal.
                 # Run the goal animation if there is a goal.
                 if overview['homescore'] > homescore + 5 or overview['awayscore'] > awayscore + 5:
-                   self._draw_goal()
+                   self._draw_td()
+                elif overview['homescore'] > homescore + 2 or overview['awayscore'] > awayscore + 2:
+                   self._draw_fg()
                 # Prepare the data
                 score = '{}-{}'.format(overview['awayscore'], overview['homescore'])
                 if overview['possession'] == overview['awayid']:
@@ -275,16 +277,51 @@ class MainRenderer:
             self.canvas = self.matrix.SwapOnVSync(self.canvas)
             t.sleep(60)  # sleep for 1 min
 
-    def _draw_goal(self):
+    def _draw_td(self):
         debug.info('TD')
         # Load the gif file
-        im = Image.open("Assets/goal_light_animation.gif")
+        ball = Image.open("sssets/td_ball.gif")
+        words = Image.open("sssets/td_words.gif")
         # Set the frame index to 0
         frameNo = 0
         self.canvas.Clear()
         # Go through the frames
         x = 0
-        while x is not 5:
+        while x is not 3:
+            try:
+                ball.seek(frameNo)
+            except EOFError:
+                x += 1
+                frameNo = 0
+                ball.seek(frameNo)
+            self.canvas.SetImage(ball.convert('RGB'), 0, 0)
+            self.canvas = self.matrix.SwapOnVSync(self.canvas)
+            frameNo += 1
+            t.sleep(0.05)
+
+        x = 0
+        while x is not 3:
+            try:
+                words.seek(frameNo)
+            except EOFError:
+                x += 1
+                frameNo = 0
+                words.seek(frameNo)
+            self.canvas.SetImage(words.convert('RGB'), 0, 0)
+            self.canvas = self.matrix.SwapOnVSync(self.canvas)
+            frameNo += 1
+            t.sleep(0.05)
+
+    def _draw_fg(self):
+        debug.info('FG')
+        # Load the gif file
+        im = Image.open("assets/fg.gif")
+        # Set the frame index to 0
+        frameNo = 0
+        self.canvas.Clear()
+        # Go through the frames
+        x = 0
+        while x is not 3:
             try:
                 im.seek(frameNo)
             except EOFError:
@@ -294,7 +331,7 @@ class MainRenderer:
             self.canvas.SetImage(im.convert('RGB'), 0, 0)
             self.canvas = self.matrix.SwapOnVSync(self.canvas)
             frameNo += 1
-            t.sleep(0.1)
+            t.sleep(0.05)
 
     def _draw_off_day(self):
         self.draw.text((0, -1), 'NO GAME TODAY', font=self.font_mini)
