@@ -45,7 +45,7 @@ def get_all_games():
     except Exception as e:
         print("something bad?", e)
 
-def which_playoff_game(games, game):
+def which_playoff_game(games):
     # games should be sorted by date, earliest to latest
     for game in games:
         # testing purposes
@@ -55,7 +55,7 @@ def which_playoff_game(games, game):
             return games[game]
         if games[game]['state'] == 'pre':
             return games[game]
-    return game
+    return None
 
 def is_playoffs():
     try:
