@@ -22,7 +22,6 @@ class MainRenderer:
         # Load the fonts
         self.font = ImageFont.truetype("fonts/score_large.otf", 16)
         self.font_mini = ImageFont.truetype("fonts/04B_24__.TTF", 8)
-        self.gametime = datetime.strptime(self.data.game['date'], "%Y-%m-%dT%H:%MZ")
 
     def render(self):
         # we're in turbo lazy playoff mode right now don't @ me
@@ -35,15 +34,16 @@ class MainRenderer:
 
     def __render_game(self):
         time = self.data.get_current_date()
-        if time < self.gametime - timedelta(hours=2) and self.data.game['state'] == 'pre':
+        gametime = datetime.strptime(self.data.game['date'], "%Y-%m-%dT%H:%MZ")
+        if time < gametime - timedelta(hours=2) and self.data.game['state'] == 'pre':
             debug.info('Scheduled State, waiting 30')
             self._draw_pregame()
             t.sleep(1800)
-        elif time < self.gametime - timedelta(hours=1) and self.data.game['state'] == 'pre':
+        elif time < gametime - timedelta(hours=1) and self.data.game['state'] == 'pre':
             debug.info('Pre-Game State, waiting 1 minute')
             self._draw_pregame()
             t.sleep(60)
-        elif time < self.gametime and self.data.game['state'] == 'pre':
+        elif time < gametime and self.data.game['state'] == 'pre':
             debug.info('Countdown til gametime')
             self._draw_countdown()
         elif self.data.game['state'] == 'post':
@@ -62,15 +62,16 @@ class MainRenderer:
 
     def _draw_countdown(self):
         time = self.data.get_current_date()
-        if time < self.gametime:
-            print(self.gametime - time)
+        gametime = datetime.strptime(self.data.game['date'], "%Y-%m-%dT%H:%MZ")
+        if time < gametime:
+            print(gametime - time)
             overview = self.data.game
-            gametime = self.gametime - time
+            gametime = gametime - time
             # as beautiful as I am
             if gametime > timedelta(hours=1):
-                gametime = ':'.join(str(self.gametime - time).split(':')[:2])
+                gametime = ':'.join(str(gametime - time).split(':')[:2])
             else:
-                gametime = ':'.join(str(self.gametime - time).split(':')[1:]).split('.')[:1][0]
+                gametime = ':'.join(str(gametime - time).split(':')[1:]).split('.')[:1][0]
             # Center the game time on screen.
             gametime_pos = center_text(self.font_mini.getsize(gametime)[0], 32)
             awaysize = self.screen_config.team_logos_pos[overview['awayteam']]['size']

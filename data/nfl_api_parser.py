@@ -55,6 +55,8 @@ def which_playoff_game(games):
             return games[game]
         if games[game]['state'] == 'pre':
             return games[game]
+        if games[game]['state'] == 'post':
+            return games[game]
     return None
 
 def is_playoffs():

@@ -36,9 +36,12 @@ class Data:
             return nflparser.get_game(self.fav_team)
 
     def get_gametime(self):
-        tz_diff = t.timezone if (t.localtime().tm_isdst == 0) else t.altzone
-        gametime = datetime.strptime(self.game['date'], "%Y-%m-%dT%H:%MZ") + timedelta(hours=(tz_diff / 60 / 60 * -1))
-        return gametime.strftime("%-I:%M %p")
+        if self.game:
+            tz_diff = t.timezone if (t.localtime().tm_isdst == 0) else t.altzone
+            gametime = datetime.strptime(self.game['date'], "%Y-%m-%dT%H:%MZ") + timedelta(hours=(tz_diff / 60 / 60 * -1))
+            return gametime.strftime("%-I:%M %p")
+        else:
+            return None
 
     # def refresh_fav_team_status(self):
     #     gametime = datetime.strptime(self.game.date, "%Y-%m-%dT%H:%MZ")
