@@ -35,7 +35,11 @@ class MainRenderer:
     def __render_game(self):
         time = self.data.get_current_date()
         gametime = datetime.strptime(self.data.game['date'], "%Y-%m-%dT%H:%MZ")
-        if time < gametime - timedelta(hours=2) and self.data.game['state'] == 'pre':
+        if time < gametime - timedelta(hours=12) and self.data.game['state'] == 'pre':
+            debug.info('Scheduled State, waiting 12h')
+            self._draw_pregame()
+            t.sleep(43200)
+        elif time < gametime - timedelta(hours=2) and self.data.game['state'] == 'pre':
             debug.info('Scheduled State, waiting 30')
             self._draw_pregame()
             t.sleep(1800)
@@ -49,7 +53,7 @@ class MainRenderer:
         elif self.data.game['state'] == 'post':
             debug.info('Final State, waiting 6 hours')
             self._draw_post_game()
-            t.sleep(3600)
+            t.sleep(21600)
         else:
             debug.info('Live State, checking every 5s')
             self._draw_game()
