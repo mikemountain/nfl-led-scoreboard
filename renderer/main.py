@@ -99,10 +99,17 @@ class MainRenderer:
             t.sleep(1)
 
     def _draw_pregame(self):
+        time = self.data.get_current_date()
+        gametime = datetime.strptime(self.data.game['date'], "%Y-%m-%dT%H:%MZ")
         if self.data.game != 0:
+            if gametime.day == time.day:
+                date_text = 'TODAY'
+            else:
+                date_text = gametime.strftime('%A').upper()
             overview = self.data.game
             gametime = self.data.gametime
             # Center the game time on screen.
+            date_pos = center_text(self.font_mini.getsize(date_text)[0], 32)
             gametime_pos = center_text(self.font_mini.getsize(gametime)[0], 32)
             awaysize = self.screen_config.team_logos_pos[overview['awayteam']]['size']
             homesize = self.screen_config.team_logos_pos[overview['hometeam']]['size']
@@ -113,7 +120,7 @@ class MainRenderer:
             away_team_logo = Image.open('logos/{}.png'.format(overview['awayteam'])).resize((19, 19), 1)
             home_team_logo = Image.open('logos/{}.png'.format(overview['hometeam'])).resize((19, 19), 1)
             # Draw the text on the Data image.
-            self.draw.text((22, -1), 'TODAY', font=self.font_mini)
+            self.draw.text((date_pos, -1), date_text, font=self.font_mini)
             self.draw.multiline_text((gametime_pos, 5), gametime, fill=(255, 255, 255), font=self.font_mini, align="center")
             self.draw.text((25, 15), 'VS', font=self.font)
             # Put the data on the canvas
@@ -281,8 +288,8 @@ class MainRenderer:
     def _draw_td(self):
         debug.info('TD')
         # Load the gif file
-        ball = Image.open("sssets/td_ball.gif")
-        words = Image.open("sssets/td_words.gif")
+        ball = Image.open("assets/td_ball.gif")
+        words = Image.open("assets/td_words.gif")
         # Set the frame index to 0
         frameNo = 0
         self.canvas.Clear()
@@ -299,7 +306,6 @@ class MainRenderer:
             self.canvas = self.matrix.SwapOnVSync(self.canvas)
             frameNo += 1
             t.sleep(0.05)
-
         x = 0
         while x is not 3:
             try:
