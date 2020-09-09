@@ -24,13 +24,9 @@ class MainRenderer:
         self.font_mini = ImageFont.truetype("fonts/04B_24__.TTF", 8)
 
     def render(self):
-        # we're in turbo lazy playoff mode right now don't @ me
         while True:
             self.data.get_current_date()
-            if self.data.game['state'] == "in":
-                self._draw_game()
-            else:
-                self.__render_game()
+            self.__render_game()
 
     def __render_game(self):
         time = self.data.get_current_date()
@@ -59,20 +55,16 @@ class MainRenderer:
             self._draw_game()
         debug.info('ping render_game')
 
-    def __render_off_day(self):
-        debug.info('ping_day_off')
-        self._draw_off_day()
-        t.sleep(21600) #sleep 6 hours
-
     def _draw_countdown(self):
         time = self.data.get_current_date()
         gametime = datetime.strptime(self.data.game['date'], "%Y-%m-%dT%H:%MZ")
+        print(time, gametime)
         if time < gametime:
             print(gametime - time)
             overview = self.data.game
-            gametime = gametime - time
+            gt = gametime - time
             # as beautiful as I am
-            if gametime > timedelta(hours=1):
+            if gt > timedelta(hours=1):
                 gametime = ':'.join(str(gametime - time).split(':')[:2])
             else:
                 gametime = ':'.join(str(gametime - time).split(':')[1:]).split('.')[:1][0]
@@ -112,7 +104,7 @@ class MainRenderer:
                 date_text = gametime.strftime('%A').upper()
             overview = self.data.game
             gametime = self.data.gametime
-            # Center the game time on screen.
+            # Center the game time on screen.                
             date_pos = center_text(self.font_mini.getsize(date_text)[0], 32)
             gametime_pos = center_text(self.font_mini.getsize(gametime)[0], 32)
             awaysize = self.screen_config.team_logos_pos[overview['awayteam']]['size']
@@ -121,11 +113,11 @@ class MainRenderer:
             away_team_logo_pos = self.screen_config.team_logos_pos[overview['awayteam']]['preaway']
             home_team_logo_pos = self.screen_config.team_logos_pos[overview['hometeam']]['prehome']
             # Open the logo image file
-            away_team_logo = Image.open('logos/{}.png'.format(overview['awayteam'])).resize((19, 19), 1)
-            home_team_logo = Image.open('logos/{}.png'.format(overview['hometeam'])).resize((19, 19), 1)
+            away_team_logo = Image.open('logos/{}.png'.format(overview['awayteam'])).resize((awaysize, awaysize), 1)
+            home_team_logo = Image.open('logos/{}.png'.format(overview['hometeam'])).resize((homesize, homesize), 1)
             # Draw the text on the Data image.
-            self.draw.text((date_pos, -1), date_text, font=self.font_mini)
-            self.draw.multiline_text((gametime_pos, 5), gametime, fill=(255, 255, 255), font=self.font_mini, align="center")
+            self.draw.text((date_pos, 0), date_text, font=self.font_mini)
+            self.draw.multiline_text((gametime_pos, 6), gametime, fill=(255, 255, 255), font=self.font_mini, align="center")
             self.draw.text((25, 15), 'VS', font=self.font)
             # Put the data on the canvas
             self.canvas.SetImage(self.image, 0, 0)
@@ -151,7 +143,6 @@ class MainRenderer:
         overview = self.data.game
         homescore = overview['homescore']
         awayscore = overview['awayscore']
-        i = 5
         while True:
             # Refresh the data
             if self.data.needs_refresh:
@@ -174,7 +165,7 @@ class MainRenderer:
                 elif overview['homescore'] > homescore + 2 or overview['awayscore'] > awayscore + 2:
                    self._draw_fg()
                 # Prepare the data
-                score = '{}-{}'.format(overview['awayscore'], overview['homescore'])
+                # score = '{}-{}'.format(overview['awayscore'], overview['homescore'])
                 if overview['possession'] == overview['awayid']:
                     pos = overview['awayteam']
                 else:
@@ -187,29 +178,26 @@ class MainRenderer:
                 game_info = None
                 if overview['down']:
                     down = re.sub(r"[a-z]+", "", overview['down']).replace(" ", "")
+                    info_pos = center_text(self.font_mini.getsize(str(down))[0], 32)
+                    self.draw.multiline_text((info_pos, 19), str(down), fill=(255, 255, 255), font=self.font_mini, align="center")
                 if overview['spot']:
                     spot = overview['spot'].replace(" ", "")
+                    info_pos = center_text(self.font_mini.getsize(spot)[0], 32)
+                    self.draw.multiline_text((info_pos, 25), spot, fill=(255, 255, 255), font=self.font_mini, align="center")
                 pos_colour = (255, 255, 255)
-                if i == 3 and pos:
-                    game_info = pos
-                    i = 5
-                    if overview['redzone']:
-                        pos_colour = (255, 25, 25)
-                elif i == 5 and down:
-                    game_info = down
-                    i = 2
-                elif i == 2 and spot:
-                    game_info = spot
-                    i = 3
-                else:
-                    i = 5
+                if overview['redzone']:
+                    pos_colour = (255, 25, 25)
                 # Set the position of the information on screen.
+                homescore = '{0:02d}'.format(homescore)
+                awayscore = '{0:02d}'.format(awayscore)
+                home_score_size = self.font.getsize(homescore)[0]
+                home_score_pos = center_text(self.font.getsize(homescore)[0], 16)
+                away_score_pos = center_text(self.font.getsize(awayscore)[0], 48)
                 time_period_pos = center_text(self.font_mini.getsize(time_period)[0], 32)
-                score_position = center_text(self.font.getsize(score)[0], 32)
+                # score_position = center_text(self.font.getsize(score)[0], 32)
                 quarter_position = center_text(self.font_mini.getsize(quarter)[0], 32)
-                if game_info:
-                    info_pos = center_text(self.font_mini.getsize(game_info)[0], 32)
-                    self.draw.multiline_text((info_pos, 12), game_info, fill=pos_colour, font=self.font_mini, align="center")
+                info_pos = center_text(self.font_mini.getsize(pos)[0], 32)
+                self.draw.multiline_text((info_pos, 13), pos, fill=pos_colour, font=self.font_mini, align="center")
                 # Set the position of each logo on screen.
                 awaysize = self.screen_config.team_logos_pos[overview['awayteam']]['size']
                 homesize = self.screen_config.team_logos_pos[overview['hometeam']]['size']
@@ -222,7 +210,9 @@ class MainRenderer:
                 # Draw the text on the Data image.
                 self.draw.multiline_text((quarter_position, 0), quarter, fill=(255, 255, 255), font=self.font_mini, align="center")
                 self.draw.multiline_text((time_period_pos, 6), time_period, fill=(255, 255, 255), font=self.font_mini, align="center")
-                self.draw.multiline_text((score_position, 19), score, fill=(255, 255, 255), font=self.font, align="center")
+                self.draw.multiline_text((6, 19), awayscore, fill=(255, 255, 255), font=self.font, align="center")
+                self.draw.multiline_text((59 - home_score_size, 19), homescore, fill=(255, 255, 255), font=self.font, align="center")
+                # self.draw.multiline_text((score_position, 19), score, fill=(255, 255, 255), font=self.font, align="center")
                 # Put the data on the canvas
                 self.canvas.SetImage(self.image, 0, 0)
                 # Put the images on the canvas
@@ -241,7 +231,7 @@ class MainRenderer:
                 awayscore = overview['awayscore']
                 homescore = overview['homescore']
                 self.data.needs_refresh = True
-                t.sleep(i)
+                t.sleep(1)
             else:
                 # (Need to make the screen run on it's own) If connection to the API fails, show bottom red line and refresh in 1 min.
                 self.draw.line((0, 0) + (self.width, 0), fill=128)
@@ -343,8 +333,3 @@ class MainRenderer:
             self.canvas = self.matrix.SwapOnVSync(self.canvas)
             frameNo += 1
             t.sleep(0.05)
-
-    def _draw_off_day(self):
-        self.draw.text((0, -1), 'NO GAME TODAY', font=self.font_mini)
-        self.canvas.SetImage(self.image, 0, 0)
-        self.canvas = self.matrix.SwapOnVSync(self.canvas)
