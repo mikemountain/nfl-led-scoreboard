@@ -53,8 +53,8 @@ sudo apt-get install git python-pip
 This installation process might take some time because it will install all the dependencies listed below.
 
 ```
-git clone --recursive https://github.com/mikemountain/fantasy-football-scoreboard
-cd fantasy-football-scoreboard/
+git clone --recursive https://github.com/mikemountain/nfl-led-scoreboard
+cd nfl-led-scoreboard/
 sudo chmod +x install.sh
 sudo ./install.sh
 ```
