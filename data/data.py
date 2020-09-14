@@ -22,7 +22,7 @@ class Data:
         self.gametime = self.get_gametime()
 
     def get_current_date(self):
-        return datetime.utcnow()
+        return datetime.now()
     
     def refresh_game(self):
         self.game = self.choose_game()
@@ -39,7 +39,7 @@ class Data:
         if self.game:
             tz_diff = t.timezone if (t.localtime().tm_isdst == 0) else t.altzone
             gametime = datetime.strptime(self.game['date'], "%Y-%m-%dT%H:%MZ") + timedelta(hours=(tz_diff / 60 / 60 * -1))
-            return gametime.strftime("%-I:%M %p")
+            return gametime
         else:
             return None
 

@@ -39,6 +39,9 @@ class MainRenderer:
             debug.info('Scheduled State, waiting 30')
             self._draw_pregame()
             t.sleep(1800)
+            # debug.info('Reloading screen to tweak positions')
+            # self.screen_config = screenConfig("64x32_config")
+            # t.sleep(1)
         elif time < gametime - timedelta(hours=1) and self.data.game['state'] == 'pre':
             debug.info('Pre-Game State, waiting 1 minute')
             self._draw_pregame()
@@ -50,6 +53,9 @@ class MainRenderer:
             debug.info('Final State, waiting 6 hours')
             self._draw_post_game()
             t.sleep(21600)
+            # debug.info('Reloading screen to tweak positions')
+            # self.screen_config = screenConfig("64x32_config")
+            # t.sleep(1)
         else:
             debug.info('Live State, checking every 5s')
             self._draw_game()
@@ -96,14 +102,14 @@ class MainRenderer:
 
     def _draw_pregame(self):
         time = self.data.get_current_date()
-        gametime = datetime.strptime(self.data.game['date'], "%Y-%m-%dT%H:%MZ")
+        gamedatetime = self.data.gametime
         if self.data.game != 0:
-            if gametime.day == time.day:
+            if gamedatetime.day == time.day:
                 date_text = 'TODAY'
             else:
                 date_text = gametime.strftime('%A').upper()
             overview = self.data.game
-            gametime = self.data.gametime
+            gametime = gamedatetime.strftime("%-I:%M %p")
             # Center the game time on screen.                
             date_pos = center_text(self.font_mini.getsize(date_text)[0], 32)
             gametime_pos = center_text(self.font_mini.getsize(gametime)[0], 32)
@@ -277,7 +283,7 @@ class MainRenderer:
             # (Need to make the screen run on it's own) If connection to the API fails, show bottom red line and refresh in 1 min.
             self.draw.line((0, 0) + (self.width, 0), fill=128)
             self.canvas = self.matrix.SwapOnVSync(self.canvas)
-            t.sleep(60)  # sleep for 1 min
+            t.sleep(10)  # sleep for 10 sec
 
     def _draw_td(self):
         debug.info('TD')
@@ -332,4 +338,4 @@ class MainRenderer:
             self.canvas.SetImage(im.convert('RGB'), 0, 0)
             self.canvas = self.matrix.SwapOnVSync(self.canvas)
             frameNo += 1
-            t.sleep(0.05)
+            t.sleep(0.02)
