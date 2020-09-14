@@ -11,7 +11,7 @@ class ScoreboardConfig:
         #     self.fav_team = args.fav_team
         # else:
         self.debug = json["debug"]
-        self.fav_team = json['fav_team']
+        self.fav_team = json['fav_team'].upper()
 
     def read_json(self, filename):
         # Find and return a json file

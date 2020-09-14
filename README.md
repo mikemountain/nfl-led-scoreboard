@@ -1,7 +1,7 @@
 # nfl-led-scoreboard
 ![I promise to change this picture when I actually build my own](imgs/scoreboard.jpg)
 
-This project is currently in turbo-alpha state. Display your favourite NFL team score on an raspberry pi powered LED matrix. Currently supports 64x32 boards only.
+Display your favourite NFL team score on an raspberry pi powered LED matrix. Currently supports 64x32 boards only.
 
 ### Credit and inpsiration
 This project and my [other Fantasy Football scoreboard project](https://github.com/mikemountain/fantasy-football-scoreboard) were inspired by the [nhl-led-scoreboard](https://github.com/riffnshred/nhl-led-scoreboard), who based THEIR project off of the [mlb-led-scoreboard](https://github.com/MLB-LED-Scoreboard/mlb-led-scoreboard). Go check them out, and start watching hockey if you don't already (and baseball too but I love hockey more (go Leafs!)).
@@ -10,28 +10,28 @@ This project and my [other Fantasy Football scoreboard project](https://github.c
 <a href="https://paypal.me/themikemountain/"><img src="https://github.com/andreostrovsky/donate-with-paypal/blob/master/dark.svg" height="40"></a>  
 If you enjoyed this project — or just feeling generous, consider buying me a beer. Cheers! :beers:
 
-## Features (v0.0.0a)
+## Features (v0.0.1)
 
 ### Pregame
-Currently shows the team logos and the game time.
+Currently shows the team logos and the game time. ![pregame](imgs/pregame.jpg)
 
 ### Live scoring updates 
-The score seems to update every 10-60 seconds, with the clock, score, and down/spot info just updating arbitrarily. The API gets checked every 2-5 seconds, but it will lag. Future versions will hopefully try to minimise this by finding a better API to check. The scoreboard will switch through displaying the team with possession (and the team name will turn red in the redzone), ![possession](imgs/scoreboard_possession.jpg) the current down with yards to go, ![down](imgs/scoreboard_down.jpg) and where the line of scrimmage is. ![spot](imgs/scoreboard_spot.jpg)
+The score updates every 3 seconds. The scoreboard will display, from top to bottom: quarter, time remaining in quarter, team with possession, down and yards to gain, and the position of the line of scrimmage. ![scoreboard](imgs/scoreboard.jpg) When a team is in the redzone, their name will light up red. ![rz](imgs/rz.jpg)
 
 ### Postgame
-Currently not really working, just kind of looks like the pre-game screen but with the final scores. Hopefully, the board will stay in a post-game state until the next week. Loser score will be red, winner green.
+Just kind of looks like the pre-game screen but with the final scores. ![final score](imgs/postgame.jpg)
 
 ### Off season
-It displays a message that it's the off season. ![man it's offseason, take a break](imgs/off_season.jpg) You should just turn it off and plan to be heartbroken again next year.
+It displays a message that it's the off season. You should just turn it off and plan to be heartbroken again next year.
 
 ### Preseason
-Nothing yet, but I don't see why it wouldn't be added if the stats are there.
+Nothing yet because I didn't even think the season would start because of COVID.
 
 ## Roadmap
 
 Future plans include:
-* there's still a lot to be done to track a user's favourite team and only show info pertinent to their team
-* fix all the half-ass shit that was added in a rush because I started this during the playoffs and haven't really worked on it enough
+* allow for a list of teams (or all teams) to be cycled through, with custom cycle times
+* haven't been able to test every single team's home and away placements yet, so some will inevitably be off and that needs to be fixed
 
 ## Installation
 ### Hardware Assembly
