@@ -7,7 +7,7 @@ from data.data import Data
 import debug
 
 SCRIPT_NAME = "NFL Scoreboard"
-SCRIPT_VERSION = "0.0.0a"
+SCRIPT_VERSION = "0.0.1"
 
 # Get supplied command line arguments
 args = args()
