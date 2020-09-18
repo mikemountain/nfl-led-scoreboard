@@ -107,7 +107,7 @@ class MainRenderer:
             if gamedatetime.day == time.day:
                 date_text = 'TODAY'
             else:
-                date_text = gametime.strftime('%A').upper()
+                date_text = gamedatetime.strftime('%A').upper()
             overview = self.data.game
             gametime = gamedatetime.strftime("%-I:%M %p")
             # Center the game time on screen.                
