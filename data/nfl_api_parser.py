@@ -48,7 +48,7 @@ def get_all_games():
 def which_playoff_game(games, fav_team):
     # check for fav team first
     for game in games:
-        if games[game]['hometeam'] == fav_team or games[game]['awayteam'] == fav_team
+        if games[game]['hometeam'] == fav_team or games[game]['awayteam'] == fav_team:
             return games[game]
     # games should be sorted by date, earliest to latest
     for game in games:
