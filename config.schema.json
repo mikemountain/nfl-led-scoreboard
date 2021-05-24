@@ -1,0 +1,63 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "$id": "https://github.com/sflems/led-board-manager/staticfiles/schema/nfl.config.schema.json",
+    "type": "object",
+    "title": "NFL LED Scoreboard configuration",
+    "description": "Configuration that controls the NFL LED scoreboard rgb matrix application",
+    "default": {},
+    "additionalProperties": true,
+    "properties": {
+        "fav_team": {
+            "$id": "#/properties/fav_team",
+            "type": "string",
+            "title": "teams",
+            "description": "Team selected to display.",
+            "default": "SF",
+            "enum": [
+              "ARI",
+              "ATL",
+              "BAL",
+              "BUF",
+              "CAR",
+              "CHI",
+              "CIN",
+              "CLE",
+              "DAL",
+              "DEN",
+              "DET",
+              "GB",
+              "HOU",
+              "IND",
+              "JAX",
+              "KC",
+              "LV",
+              "LAC",
+              "LAR",
+              "MIA",
+              "MIN",
+              "NE",
+              "NO",
+              "NYG",
+              "NYJ",
+              "PHI",
+              "PIT",
+              "SF",
+              "SEA",
+              "TB",
+              "TEN",
+              "WAS"
+          ]
+        },
+      "debug": {
+        "$id": "#/properties/debug",
+            "type": "boolean",
+            "title": "debug",
+            "description": "Game and other debug data is written to your console.",
+            "default": false
+      }
+    },
+    "required": [
+      "fav_team",
+      "debug"
+    ]
+  }
