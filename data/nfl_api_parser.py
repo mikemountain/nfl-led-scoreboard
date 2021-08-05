@@ -45,7 +45,7 @@ def get_all_games():
     except Exception as e:
         print("something bad?", e)
 
-def which_playoff_game(games, fav_team):
+def which_game(games, fav_team):
     # check for fav team first
     for game in games:
         if games[game]['hometeam'] == fav_team or games[game]['awayteam'] == fav_team:
