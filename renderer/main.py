@@ -63,10 +63,8 @@ class MainRenderer:
 
     def _draw_countdown(self):
         time = self.data.get_current_date()
-        gametime = datetime.strptime(self.data.game['date'], "%Y-%m-%dT%H:%MZ")
-        print(time, gametime)
+        gametime = self.data.gametime
         if time < gametime:
-            print(gametime - time)
             overview = self.data.game
             gt = gametime - time
             # as beautiful as I am
