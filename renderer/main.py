@@ -96,7 +96,7 @@ class MainRenderer:
             # Refresh the Data image.
             self.image = Image.new('RGB', (self.width, self.height))
             self.draw = ImageDraw.Draw(self.image)
-            t.sleep(1)
+            t.sleep(0.3)
 
     def _draw_pregame(self):
         time = self.data.get_current_date()
