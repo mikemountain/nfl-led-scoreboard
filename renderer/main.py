@@ -30,7 +30,7 @@ class MainRenderer:
 
     def __render_game(self):
         time = self.data.get_current_date()
-        gametime = datetime.strptime(self.data.game['date'], "%Y-%m-%dT%H:%MZ")
+        gametime = self.data.gametime
         if time < gametime - timedelta(hours=12) and self.data.game['state'] == 'pre':
             debug.info('Scheduled State, waiting 12h')
             self._draw_pregame()
