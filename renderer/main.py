@@ -30,7 +30,7 @@ class MainRenderer:
 
     def __render_game(self):
         time = self.data.get_current_date()
-        gametime = datetime.strptime(self.data.game['date'], "%Y-%m-%dT%H:%MZ")
+        gametime = self.data.gametime
         if time < gametime - timedelta(hours=12) and self.data.game['state'] == 'pre':
             debug.info('Scheduled State, waiting 12h')
             self._draw_pregame()
@@ -63,10 +63,8 @@ class MainRenderer:
 
     def _draw_countdown(self):
         time = self.data.get_current_date()
-        gametime = datetime.strptime(self.data.game['date'], "%Y-%m-%dT%H:%MZ")
-        print(time, gametime)
+        gametime = self.data.gametime
         if time < gametime:
-            print(gametime - time)
             overview = self.data.game
             gt = gametime - time
             # as beautiful as I am
@@ -98,7 +96,7 @@ class MainRenderer:
             # Refresh the Data image.
             self.image = Image.new('RGB', (self.width, self.height))
             self.draw = ImageDraw.Draw(self.image)
-            t.sleep(1)
+            t.sleep(0.3)
 
     def _draw_pregame(self):
         time = self.data.get_current_date()
