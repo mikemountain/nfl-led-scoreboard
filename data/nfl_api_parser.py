@@ -35,7 +35,7 @@ def get_all_games():
     try:
         res = requests.get(URL)
         res = res.json()
-        games = {}
+        games = []
         # i = 0
         for g in res['events']:
             info = g['competitions'][0]
@@ -45,7 +45,7 @@ def get_all_games():
                     'down': info.get('situation', {}).get('shortDownDistanceText'), 'spot': info.get('situation', {}).get('possessionText'),
                     'time': info['status']['displayClock'], 'quarter': info['status']['period'], 'over': info['status']['type']['completed'],
                     'redzone': info.get('situation', {}).get('isRedZone'), 'possession': info.get('situation', {}).get('possession'), 'state': info['status']['type']['state']}
-            games[i] = game
+            games.append(game)
             # i += 1
         return games
     except requests.exceptions.RequestException as e:
