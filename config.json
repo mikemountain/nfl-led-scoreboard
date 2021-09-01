@@ -1,4 +1,21 @@
 {
-    "fav_team": "SF",
-    "debug": "false"
+	"preferred": {
+		"teams": ["NE", "NO", "TB"],
+		"divisions": ["AFCE"]
+	},
+	"rotation": {
+		"enabled": true,
+		"only_preferred": false,
+		"rates": {
+			"live": 15.0,
+			"final": 15.0,
+			"pregame": 15.0
+		},
+		"while_preferred_team_live": {
+			"enabled": false,
+			"during_halftime": false
+		}
+	},
+	"scrolling_speed": 2,
+    "debug": "true"
 }
