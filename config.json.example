@@ -1,21 +1,21 @@
 {
 	"preferred": {
-		"teams": ["BUF", "NO", "TB"]
+		"teams": ["NE", "NO"],
+		"divisions": ["AFCE"]
 	},
 	"rotation": {
 		"enabled": true,
+		"scroll_until_finished": true,
 		"only_preferred": false,
 		"rates": {
 			"live": 15.0,
-			"final": 10.0,
-			"pregame": 10.0
+			"final": 15.0,
+			"pregame": 15.0
 		},
 		"while_preferred_team_live": {
 			"enabled": false,
 			"during_halftime": false
 		}
 	},
-    "scrolling_speed": 2,
-    "use_helmet_logos": true,
-    "debug": "true"
+    "debug": "false"
 }

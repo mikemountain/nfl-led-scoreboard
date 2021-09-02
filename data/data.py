@@ -13,8 +13,7 @@ class Data:
         # Flag to determine when to refresh data
         self.needs_refresh = True
 
-        # Flag to determine when it's a new day
-        self.new_day = False
+        self.helmet_logos = self.config.helmet_logos
         
         # Parse today's date and see if we should use today or yesterday
         self.get_current_date()
