@@ -255,7 +255,7 @@ class MainRenderer:
             home_team_logo = Image.open('logos/{}H.png'.format(game['hometeam'])).resize((20, 20), 1).transpose(Image.FLIP_LEFT_RIGHT)
             # Put the images on the canvas
             self.canvas.SetImage(away_team_logo.convert("RGB"), 1, 0)
-            self.canvas.SetImage(home_team_logo.convert("RGB"), 43, 0
+            self.canvas.SetImage(home_team_logo.convert("RGB"), 43, 0)
         else:
             # TEMP Open the logo image file
             away_team_logo = Image.open('logos/{}.png'.format(game['awayteam'])).resize((20, 20), Image.BOX)
