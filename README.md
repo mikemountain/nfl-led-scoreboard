@@ -4,13 +4,17 @@
 Display your favourite NFL team score on an raspberry pi powered LED matrix. Currently supports 64x32 boards only.
 
 ### Credit and inpsiration
-This project and my [other Fantasy Football scoreboard project](https://github.com/mikemountain/fantasy-football-scoreboard) were inspired by the [nhl-led-scoreboard](https://github.com/riffnshred/nhl-led-scoreboard), who based THEIR project off of the [mlb-led-scoreboard](https://github.com/MLB-LED-Scoreboard/mlb-led-scoreboard). Go check them out, and start watching hockey if you don't already (and baseball too but I love hockey more (go Leafs!)).
+This project and my [Fantasy Football scoreboard project](https://github.com/mikemountain/fantasy-football-scoreboard) were inspired by the [nhl-led-scoreboard](https://github.com/riffnshred/nhl-led-scoreboard), who based THEIR project off of the [mlb-led-scoreboard](https://github.com/MLB-LED-Scoreboard/mlb-led-scoreboard). Go check them out, and start watching hockey if you don't already (and baseball too but I love hockey more (go Leafs!)).
 
 ### Donate
 <a href="https://paypal.me/themikemountain/"><img src="https://github.com/andreostrovsky/donate-with-paypal/blob/master/dark.svg" height="40"></a>  
-If you enjoyed this project — or just feeling generous, consider buying me a beer. Cheers! :beers:
+If you enjoyed this project, my NFL project, or if you're just feeling generous, consider buying me a beer. Cheers! :beers: 
+You can also PM me on reddit under /u/mikemountain if you need help but don't think it requires an issue!
 
-## Features (v0.0.1)
+## Features (v0.1.0)
+
+### GAME ROTATION
+Hey, neat-o! You can rotate through multiple games now if you want to! Will still need some finessing, but definitely an improvement.
 
 ### Pregame
 Currently shows the team logos and the game time. ![pregame](imgs/pregame.jpg)
@@ -30,8 +34,9 @@ Nothing yet because I didn't even think the season would start because of COVID.
 ## Roadmap
 
 Future plans include:
-* allow for a list of teams (or all teams) to be cycled through, with custom cycle times
-* haven't been able to test every single team's home and away placements yet, so some will inevitably be off and that needs to be fixed
+* team colours for the score/possession maybe?
+* better/more gifs I guess?
+* general stability? I actually achieved all the goals I set out to do with this thing so I dunno what else I wanna do.
 
 ## Installation
 ### Hardware Assembly

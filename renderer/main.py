@@ -95,7 +95,7 @@ class MainRenderer:
             self._draw_pregame(game)
         elif time < gametime and game['state'] == 'pre':
             debug.info('Countdown til gametime')
-            self._draw_countdown()
+            self._draw_countdown(game)
         elif game['state'] == 'post':
             debug.info('Final State')
             self._draw_post_game(game)
