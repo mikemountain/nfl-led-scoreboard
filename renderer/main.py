@@ -307,6 +307,11 @@ class MainRenderer:
         score = '{}-{}'.format(game['awayscore'], game['homescore'])
         # Set the position of the information on screen.
         score_position = center_text(self.font.getsize(score)[0], 32)
+        # Draw the text on the Data image.
+        self.draw.multiline_text((score_position, 19), score, fill=(255, 255, 255), font=self.font, align="center")
+        self.draw.multiline_text((26, 0), "END", fill=(255, 255, 255), font=self.font_mini,align="center")
+        # Put the data on the canvas
+        self.canvas.SetImage(self.image, 0, 0)
         if self.data.helmet_logos:
             # Open the logo image file
             away_team_logo = Image.open('logos/{}H.png'.format(game['awayteam'])).resize((20, 20), 1)
@@ -335,11 +340,6 @@ class MainRenderer:
         # home_team_logo = Image.open('logos/{}.png'.format(overview['awayteam'])).resize((homesize, homesize), 1)
         # away_team_logo = Image.open('logos/{}.png'.format(game['awayteam'])).resize((19, 19), 1)
         # home_team_logo = Image.open('logos/{}.png'.format(game['hometeam'])).resize((19, 19), 1)
-        # Draw the text on the Data image.
-        self.draw.multiline_text((score_position, 19), score, fill=(255, 255, 255), font=self.font, align="center")
-        self.draw.multiline_text((26, 0), "END", fill=(255, 255, 255), font=self.font_mini,align="center")
-        # Put the data on the canvas
-        self.canvas.SetImage(self.image, 0, 0)
         # Put the images on the canvas
         # self.canvas.SetImage(away_team_logo.convert("RGB"), away_team_logo_pos["x"], away_team_logo_pos["y"])
         # self.canvas.SetImage(home_team_logo.convert("RGB"), home_team_logo_pos["x"], home_team_logo_pos["y"])
