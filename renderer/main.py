@@ -207,6 +207,7 @@ class MainRenderer:
     def _draw_live_game(self, game):
         homescore = game['homescore']
         awayscore = game['awayscore']
+        print("home: ", homescore, "away: ", awayscore)
         # Refresh the data
         if self.data.needs_refresh:
             debug.info('Refresh game overview')
@@ -214,8 +215,10 @@ class MainRenderer:
             self.data.needs_refresh = False
         # Use this code if you want the animations to run
         if game['homescore'] > homescore + 5 or game['awayscore'] > awayscore + 5:
+            debug.info('should draw TD')
             self._draw_td()
         elif game['homescore'] > homescore + 2 or game['awayscore'] > awayscore + 2:
+            debug.info('should draw FG')
             self._draw_fg()
         # Prepare the data
         # score = '{}-{}'.format(overview['awayscore'], overview['homescore'])
@@ -298,8 +301,8 @@ class MainRenderer:
         if game['state'] == 'post':
             debug.info('GAME OVER')
         # Save the scores.
-        awayscore = game['awayscore']
-        homescore = game['homescore']
+        # awayscore = game['awayscore']
+        # homescore = game['homescore']
         self.data.needs_refresh = True
 
     def _draw_post_game(self, game):
@@ -317,15 +320,15 @@ class MainRenderer:
             away_team_logo = Image.open('logos/{}H.png'.format(game['awayteam'])).resize((20, 20), 1)
             home_team_logo = Image.open('logos/{}H.png'.format(game['hometeam'])).resize((20, 20), 1).transpose(Image.FLIP_LEFT_RIGHT)
             # Put the images on the canvas
-            self.canvas.SetImage(away_team_logo.convert("RGB"), 1, 12)
-            self.canvas.SetImage(home_team_logo.convert("RGB"), 43, 12)
+            self.canvas.SetImage(away_team_logo.convert("RGB"), 1, 0)
+            self.canvas.SetImage(home_team_logo.convert("RGB"), 43, 0)
         else:
             # TEMP Open the logo image file
             away_team_logo = Image.open('logos/{}.png'.format(game['awayteam'])).resize((20, 20), Image.BOX)
             home_team_logo = Image.open('logos/{}.png'.format(game['hometeam'])).resize((20, 20), Image.BOX)
             # Put the images on the canvas
-            self.canvas.SetImage(away_team_logo.convert("RGB"), 1, 12)
-            self.canvas.SetImage(home_team_logo.convert("RGB"), 43, 12)
+            self.canvas.SetImage(away_team_logo.convert("RGB"), 1, 0)
+            self.canvas.SetImage(home_team_logo.convert("RGB"), 43, 0)
         # awaysize = self.screen_config.team_logos_pos[overview['hometeam']]['size']
         # homesize = self.screen_config.team_logos_pos[overview['awayteam']]['size']
         # awaysize = self.screen_config.team_logos_pos[game['awayteam']]['size']

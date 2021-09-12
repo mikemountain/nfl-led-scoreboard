@@ -28,6 +28,7 @@ class Data:
         # What game do we want to start on?
         self.current_game_index = 0
         self.current_division_index = 0
+        # self.scores = {}
 
     def get_current_date(self):
         return datetime.utcnow()
@@ -76,6 +77,15 @@ class Data:
 
     def current_game(self):
         return self.games[self.current_game_index]
+
+    # def update_scores(self, homescore, awayscore):
+    #     self.scores[self.current_game_index] = {'home': homescore, 'away': awayscore}
+
+    # def get_current_scores(self):
+    #     if self.scores[self.current_game_index]:
+    #         return self.scores[self.current_game_index]
+    #     else:
+    #         return {'home': 0, 'away': 0}
 
     # def refresh_overview(self):
     #     attempts_remaining = 5
