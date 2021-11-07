@@ -1,17 +1,40 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema#",
-    "$id": "https://github.com/sflems/led-board-manager/staticfiles/schema/nfl.config.schema.json",
-    "type": "object",
-    "title": "NFL LED Scoreboard configuration",
-    "description": "Configuration that controls the NFL LED scoreboard rgb matrix application",
-    "default": {},
-    "additionalProperties": true,
-    "properties": {
-        "fav_team": {
-            "$id": "#/properties/fav_team",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/sflems/led-board-manager/staticfiles/schema/nfl.config.schema.json",
+  "title": "NFL LED Scoreboard configuration",
+  "description": "Configuration that controls the NFL LED scoreboard rgb matrix application",
+  "type": "object",
+  "required": [
+    "preferred",
+    "rotation",
+    "scrolling_speed",
+    "use_helmet_logos",
+    "debug"
+  ],
+  "properties": {
+    "preferred": {
+      "$id": "#root/preferred",
+      "title": "Preferred Teams",
+      "type": "object",
+      "required": [
+        "teams"
+      ],
+      "properties": {
+        "teams": {
+          "$id": "#root/preferred/teams",
+          "title": "Teams",
+          "type": "array",
+          "description": "Teams list to display.",
+          "default": [
+            "BUF",
+            "NO",
+            "TB"
+          ],
+          "items": {
+            "$id": "#root/preferred/teams/items",
+            "title": "Team",
             "type": "string",
-            "title": "teams",
-            "description": "Team selected to display.",
+            "description": "Team to add to teams list.",
             "default": "SF",
             "enum": [
               "ARI",
@@ -46,18 +69,137 @@
               "TB",
               "TEN",
               "WSH"
-          ]
-        },
-      "debug": {
-        "$id": "#/properties/debug",
-            "type": "boolean",
-            "title": "debug",
-            "description": "Game and other debug data is written to your console.",
-            "default": false
+            ]
+          }
+        }
       }
     },
-    "required": [
-      "fav_team",
-      "debug"
-    ]
+    "rotation": {
+      "$id": "#root/rotation",
+      "title": "Rotation",
+      "type": "object",
+      "required": [
+        "enabled",
+        "only_preferred",
+        "rates",
+        "while_preferred_team_live"
+      ],
+      "properties": {
+        "enabled": {
+          "$id": "#root/rotation/enabled",
+          "title": "Enabled",
+          "type": "boolean",
+          "examples": [
+            true
+          ],
+          "default": true
+        },
+        "only_preferred": {
+          "$id": "#root/rotation/only_preferred",
+          "title": "Only_preferred",
+          "type": "boolean",
+          "examples": [
+            false
+          ],
+          "default": true
+        },
+        "rates": {
+          "$id": "#root/rotation/rates",
+          "title": "Rates",
+          "type": "object",
+          "required": [
+            "live",
+            "final",
+            "pregame"
+          ],
+          "properties": {
+            "live": {
+              "$id": "#root/rotation/rates/live",
+              "title": "Live",
+              "type": "integer",
+              "examples": [
+                15.0
+              ],
+              "default": 15.0
+            },
+            "final": {
+              "$id": "#root/rotation/rates/final",
+              "title": "Final",
+              "type": "integer",
+              "examples": [
+                10
+              ],
+              "default": 10.0
+            },
+            "pregame": {
+              "$id": "#root/rotation/rates/pregame",
+              "title": "Pregame",
+              "type": "integer",
+              "examples": [
+                10.0
+              ],
+              "default": 10.0
+            }
+          }
+        },
+        "while_preferred_team_live": {
+          "$id": "#root/rotation/while_preferred_team_live",
+          "title": "While_preferred_team_live",
+          "type": "object",
+          "required": [
+            "enabled",
+            "during_halftime"
+          ],
+          "properties": {
+            "enabled": {
+              "$id": "#root/rotation/while_preferred_team_live/enabled",
+              "title": "Enabled",
+              "type": "boolean",
+              "examples": [
+                false
+              ],
+              "default": true
+            },
+            "during_halftime": {
+              "$id": "#root/rotation/while_preferred_team_live/during_halftime",
+              "title": "During_halftime",
+              "type": "boolean",
+              "examples": [
+                false
+              ],
+              "default": true
+            }
+          }
+        }
+      }
+    },
+    "scrolling_speed": {
+      "$id": "#root/scrolling_speed",
+      "title": "Scrolling_speed",
+      "type": "integer",
+      "examples": [
+        2
+      ],
+      "default": 0
+    },
+    "use_helmet_logos": {
+      "$id": "#root/use_helmet_logos",
+      "title": "Use_helmet_logos",
+      "type": "boolean",
+      "examples": [
+        true
+      ],
+      "default": true
+    },
+    "debug": {
+      "$id": "#root/debug",
+      "title": "Debug",
+      "type": "string",
+      "default": "",
+      "examples": [
+        "true"
+      ],
+      "pattern": "^(true|false)$"
+    }
   }
+}
