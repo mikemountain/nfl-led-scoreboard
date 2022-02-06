@@ -1,6 +1,6 @@
 from datetime import datetime, timedelta
 import time as t
-import nfl_api_parser as nflparser
+import data.nfl_api_parser as nflparser
 import debug
 
 NETWORK_RETRY_SLEEP_TIME = 10.0
