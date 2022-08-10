@@ -1,0 +1,1074 @@
+{
+    "leagues": [
+        {
+            "id": "28",
+            "uid": "s:20~l:28",
+            "name": "National Football League",
+            "abbreviation": "NFL",
+            "slug": "nfl",
+            "season": {
+                "year": 2022,
+                "startDate": "2022-08-01T07:00Z",
+                "endDate": "2023-02-15T07:59Z",
+                "type": {
+                    "id": "1",
+                    "type": 1,
+                    "name": "Preseason",
+                    "abbreviation": "pre"
+                }
+            },
+            "logos": [
+                {
+                    "href": "https://a.espncdn.com/i/teamlogos/leagues/500/nfl.png",
+                    "width": 500,
+                    "height": 500,
+                    "alt": "",
+                    "rel": [
+                        "full",
+                        "default"
+                    ],
+                    "lastUpdated": "2018-06-05T12:07Z"
+                }
+            ],
+            "calendarType": "list",
+            "calendarIsWhitelist": true,
+            "calendarStartDate": "2022-08-01T07:00Z",
+            "calendarEndDate": "2023-02-15T07:59Z",
+            "calendar": [
+                {
+                    "label": "Preseason",
+                    "value": "1",
+                    "startDate": "2022-08-01T07:00Z",
+                    "endDate": "2022-08-31T06:59Z",
+                    "entries": [
+                        {
+                            "label": "Hall of Fame Weekend",
+                            "alternateLabel": "HOF",
+                            "detail": "Aug 1-9",
+                            "value": "1",
+                            "startDate": "2022-08-01T07:00Z",
+                            "endDate": "2022-08-10T06:59Z"
+                        },
+                        {
+                            "label": "Preseason Week 1",
+                            "alternateLabel": "Pre Wk 1",
+                            "detail": "Aug 10-16",
+                            "value": "2",
+                            "startDate": "2022-08-10T07:00Z",
+                            "endDate": "2022-08-17T06:59Z"
+                        },
+                        {
+                            "label": "Preseason Week 2",
+                            "alternateLabel": "Pre Wk 2",
+                            "detail": "Aug 17-23",
+                            "value": "3",
+                            "startDate": "2022-08-17T07:00Z",
+                            "endDate": "2022-08-24T06:59Z"
+                        },
+                        {
+                            "label": "Preseason Week 3",
+                            "alternateLabel": "Pre Wk 3",
+                            "detail": "Aug 24-30",
+                            "value": "4",
+                            "startDate": "2022-08-24T07:00Z",
+                            "endDate": "2022-08-31T06:59Z"
+                        }
+                    ]
+                },
+                {
+                    "label": "Regular Season",
+                    "value": "2",
+                    "startDate": "2022-09-08T07:00Z",
+                    "endDate": "2023-01-12T07:59Z",
+                    "entries": [
+                        {
+                            "label": "Week 1",
+                            "alternateLabel": "Week 1",
+                            "detail": "Sep 8-13",
+                            "value": "1",
+                            "startDate": "2022-09-08T07:00Z",
+                            "endDate": "2022-09-14T06:59Z"
+                        },
+                        {
+                            "label": "Week 2",
+                            "alternateLabel": "Week 2",
+                            "detail": "Sep 14-20",
+                            "value": "2",
+                            "startDate": "2022-09-14T07:00Z",
+                            "endDate": "2022-09-21T06:59Z"
+                        },
+                        {
+                            "label": "Week 3",
+                            "alternateLabel": "Week 3",
+                            "detail": "Sep 21-27",
+                            "value": "3",
+                            "startDate": "2022-09-21T07:00Z",
+                            "endDate": "2022-09-28T06:59Z"
+                        },
+                        {
+                            "label": "Week 4",
+                            "alternateLabel": "Week 4",
+                            "detail": "Sep 28-Oct 4",
+                            "value": "4",
+                            "startDate": "2022-09-28T07:00Z",
+                            "endDate": "2022-10-05T06:59Z"
+                        },
+                        {
+                            "label": "Week 5",
+                            "alternateLabel": "Week 5",
+                            "detail": "Oct 5-11",
+                            "value": "5",
+                            "startDate": "2022-10-05T07:00Z",
+                            "endDate": "2022-10-12T06:59Z"
+                        },
+                        {
+                            "label": "Week 6",
+                            "alternateLabel": "Week 6",
+                            "detail": "Oct 12-18",
+                            "value": "6",
+                            "startDate": "2022-10-12T07:00Z",
+                            "endDate": "2022-10-19T06:59Z"
+                        },
+                        {
+                            "label": "Week 7",
+                            "alternateLabel": "Week 7",
+                            "detail": "Oct 19-25",
+                            "value": "7",
+                            "startDate": "2022-10-19T07:00Z",
+                            "endDate": "2022-10-26T06:59Z"
+                        },
+                        {
+                            "label": "Week 8",
+                            "alternateLabel": "Week 8",
+                            "detail": "Oct 26-Nov 1",
+                            "value": "8",
+                            "startDate": "2022-10-26T07:00Z",
+                            "endDate": "2022-11-02T06:59Z"
+                        },
+                        {
+                            "label": "Week 9",
+                            "alternateLabel": "Week 9",
+                            "detail": "Nov 2-8",
+                            "value": "9",
+                            "startDate": "2022-11-02T07:00Z",
+                            "endDate": "2022-11-09T07:59Z"
+                        },
+                        {
+                            "label": "Week 10",
+                            "alternateLabel": "Week 10",
+                            "detail": "Nov 9-15",
+                            "value": "10",
+                            "startDate": "2022-11-09T08:00Z",
+                            "endDate": "2022-11-16T07:59Z"
+                        },
+                        {
+                            "label": "Week 11",
+                            "alternateLabel": "Week 11",
+                            "detail": "Nov 16-22",
+                            "value": "11",
+                            "startDate": "2022-11-16T08:00Z",
+                            "endDate": "2022-11-23T07:59Z"
+                        },
+                        {
+                            "label": "Week 12",
+                            "alternateLabel": "Week 12",
+                            "detail": "Nov 23-29",
+                            "value": "12",
+                            "startDate": "2022-11-23T08:00Z",
+                            "endDate": "2022-11-30T07:59Z"
+                        },
+                        {
+                            "label": "Week 13",
+                            "alternateLabel": "Week 13",
+                            "detail": "Nov 30-Dec 6",
+                            "value": "13",
+                            "startDate": "2022-11-30T08:00Z",
+                            "endDate": "2022-12-07T07:59Z"
+                        },
+                        {
+                            "label": "Week 14",
+                            "alternateLabel": "Week 14",
+                            "detail": "Dec 7-13",
+                            "value": "14",
+                            "startDate": "2022-12-07T08:00Z",
+                            "endDate": "2022-12-14T07:59Z"
+                        },
+                        {
+                            "label": "Week 15",
+                            "alternateLabel": "Week 15",
+                            "detail": "Dec 14-20",
+                            "value": "15",
+                            "startDate": "2022-12-14T08:00Z",
+                            "endDate": "2022-12-21T07:59Z"
+                        },
+                        {
+                            "label": "Week 16",
+                            "alternateLabel": "Week 16",
+                            "detail": "Dec 21-27",
+                            "value": "16",
+                            "startDate": "2022-12-21T08:00Z",
+                            "endDate": "2022-12-28T07:59Z"
+                        },
+                        {
+                            "label": "Week 17",
+                            "alternateLabel": "Week 17",
+                            "detail": "Dec 28-Jan 3",
+                            "value": "17",
+                            "startDate": "2022-12-28T08:00Z",
+                            "endDate": "2023-01-04T07:59Z"
+                        },
+                        {
+                            "label": "Week 18",
+                            "alternateLabel": "Week 18",
+                            "detail": "Jan 4-11",
+                            "value": "18",
+                            "startDate": "2023-01-04T08:00Z",
+                            "endDate": "2023-01-12T07:59Z"
+                        }
+                    ]
+                },
+                {
+                    "label": "Postseason",
+                    "value": "3",
+                    "startDate": "2023-01-12T08:00Z",
+                    "endDate": "2023-02-15T07:59Z",
+                    "entries": [
+                        {
+                            "label": "Wild Card",
+                            "alternateLabel": "Wild Card",
+                            "detail": "Jan 12-17",
+                            "value": "1",
+                            "startDate": "2023-01-12T08:00Z",
+                            "endDate": "2023-01-18T07:59Z"
+                        },
+                        {
+                            "label": "Divisional Round",
+                            "alternateLabel": "Div Rd",
+                            "detail": "Jan 18-24",
+                            "value": "2",
+                            "startDate": "2023-01-18T08:00Z",
+                            "endDate": "2023-01-25T07:59Z"
+                        },
+                        {
+                            "label": "Conference Championship",
+                            "alternateLabel": "Conf Champ",
+                            "detail": "Jan 25-31",
+                            "value": "3",
+                            "startDate": "2023-01-25T08:00Z",
+                            "endDate": "2023-02-01T07:59Z"
+                        },
+                        {
+                            "label": "Pro Bowl",
+                            "alternateLabel": "Pro Bowl",
+                            "detail": "Feb 1-7",
+                            "value": "4",
+                            "startDate": "2023-02-01T08:00Z",
+                            "endDate": "2023-02-08T07:59Z"
+                        },
+                        {
+                            "label": "Super Bowl",
+                            "alternateLabel": "Super Bowl",
+                            "detail": "Feb 8-14",
+                            "value": "5",
+                            "startDate": "2023-02-08T08:00Z",
+                            "endDate": "2023-02-15T07:59Z"
+                        }
+                    ]
+                },
+                {
+                    "label": "Off Season",
+                    "value": "4",
+                    "startDate": "2023-02-15T08:00Z",
+                    "endDate": "2023-08-01T06:59Z",
+                    "entries": [
+                        {
+                            "label": "Week 1",
+                            "alternateLabel": "Week 1",
+                            "detail": "Mar 8-Jul 31",
+                            "value": "1",
+                            "startDate": "2023-03-08T08:00Z",
+                            "endDate": "2023-08-01T06:59Z"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "season": {
+        "type": 1,
+        "year": 2022
+    },
+    "week": {
+        "number": 1
+    },
+    "events": [
+        {
+            "id": "401437964",
+            "uid": "s:20~l:28~e:401437964",
+            "date": "2022-08-05T00:00Z",
+            "name": "Jacksonville Jaguars at Las Vegas Raiders",
+            "shortName": "JAX @ LV",
+            "season": {
+                "year": 2022,
+                "type": 1,
+                "slug": "preseason"
+            },
+            "competitions": [
+                {
+                    "id": "401437964",
+                    "uid": "s:20~l:28~e:401437964~c:401437964",
+                    "date": "2022-08-05T00:00Z",
+                    "attendance": 17129,
+                    "type": {
+                        "id": "1",
+                        "abbreviation": "STD"
+                    },
+                    "timeValid": true,
+                    "neutralSite": true,
+                    "conferenceCompetition": false,
+                    "recent": false,
+                    "venue": {
+                        "id": "3718",
+                        "fullName": "Tom Benson Hall of Fame Stadium",
+                        "address": {
+                            "city": "Canton",
+                            "state": "OH"
+                        },
+                        "capacity": 23000,
+                        "indoor": false
+                    },
+                    "competitors": [
+                        {
+                            "id": "13",
+                            "uid": "s:20~l:28~t:13",
+                            "type": "team",
+                            "order": 0,
+                            "homeAway": "home",
+                            "winner": true,
+                            "team": {
+                                "id": "13",
+                                "uid": "s:20~l:28~t:13",
+                                "location": "Las Vegas",
+                                "name": "Raiders",
+                                "abbreviation": "LV",
+                                "displayName": "Las Vegas Raiders",
+                                "shortDisplayName": "Raiders",
+                                "color": "000000",
+                                "alternateColor": "a5acaf",
+                                "isActive": true,
+                                "venue": {
+                                    "id": "6501"
+                                },
+                                "links": [
+                                    {
+                                        "rel": [
+                                            "clubhouse",
+                                            "desktop",
+                                            "team"
+                                        ],
+                                        "href": "https://www.espn.com/nfl/team/_/name/lv/las-vegas-raiders",
+                                        "text": "Clubhouse",
+                                        "isExternal": false,
+                                        "isPremium": false
+                                    },
+                                    {
+                                        "rel": [
+                                            "roster",
+                                            "desktop",
+                                            "team"
+                                        ],
+                                        "href": "http://www.espn.com/nfl/team/roster/_/name/lv/las-vegas-raiders",
+                                        "text": "Roster",
+                                        "isExternal": false,
+                                        "isPremium": false
+                                    },
+                                    {
+                                        "rel": [
+                                            "stats",
+                                            "desktop",
+                                            "team"
+                                        ],
+                                        "href": "http://www.espn.com/nfl/team/stats/_/name/lv/las-vegas-raiders",
+                                        "text": "Statistics",
+                                        "isExternal": false,
+                                        "isPremium": false
+                                    },
+                                    {
+                                        "rel": [
+                                            "schedule",
+                                            "desktop",
+                                            "team"
+                                        ],
+                                        "href": "https://www.espn.com/nfl/team/schedule/_/name/lv",
+                                        "text": "Schedule",
+                                        "isExternal": false,
+                                        "isPremium": false
+                                    },
+                                    {
+                                        "rel": [
+                                            "photos",
+                                            "desktop",
+                                            "team"
+                                        ],
+                                        "href": "https://www.espn.com/nfl/team/photos/_/name/lv",
+                                        "text": "photos",
+                                        "isExternal": false,
+                                        "isPremium": false
+                                    },
+                                    {
+                                        "rel": [
+                                            "scores",
+                                            "sportscenter",
+                                            "app",
+                                            "team"
+                                        ],
+                                        "href": "sportscenter://x-callback-url/showClubhouse?uid=s:20~l:28~t:13&section=scores",
+                                        "text": "Scores",
+                                        "isExternal": false,
+                                        "isPremium": false
+                                    },
+                                    {
+                                        "rel": [
+                                            "draftpicks",
+                                            "desktop",
+                                            "team"
+                                        ],
+                                        "href": "http://www.espn.com/nfl/draft/teams/_/name/lv/las-vegas-raiders",
+                                        "text": "Draft Picks",
+                                        "isExternal": false,
+                                        "isPremium": true
+                                    },
+                                    {
+                                        "rel": [
+                                            "transactions",
+                                            "desktop",
+                                            "team"
+                                        ],
+                                        "href": "https://www.espn.com/nfl/team/transactions/_/name/lv",
+                                        "text": "Transactions",
+                                        "isExternal": false,
+                                        "isPremium": false
+                                    },
+                                    {
+                                        "rel": [
+                                            "injuries",
+                                            "desktop",
+                                            "team"
+                                        ],
+                                        "href": "https://www.espn.com/nfl/team/injuries/_/name/lv",
+                                        "text": "Injuries",
+                                        "isExternal": false,
+                                        "isPremium": false
+                                    },
+                                    {
+                                        "rel": [
+                                            "depthchart",
+                                            "desktop",
+                                            "team"
+                                        ],
+                                        "href": "https://www.espn.com/nfl/team/depth/_/name/lv",
+                                        "text": "Depth Chart",
+                                        "isExternal": false,
+                                        "isPremium": false
+                                    }
+                                ],
+                                "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/lv.png"
+                            },
+                            "score": "27",
+                            "linescores": [
+                                {
+                                    "value": 6.0
+                                },
+                                {
+                                    "value": 14.0
+                                },
+                                {
+                                    "value": 0.0
+                                },
+                                {
+                                    "value": 7.0
+                                }
+                            ],
+                            "statistics": [],
+                            "records": [
+                                {
+                                    "name": "YTD",
+                                    "abbreviation": "Game",
+                                    "type": "total",
+                                    "summary": "1-0"
+                                },
+                                {
+                                    "name": "Home",
+                                    "type": "home",
+                                    "summary": "1-0"
+                                },
+                                {
+                                    "name": "Road",
+                                    "type": "road",
+                                    "summary": "0-0"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "30",
+                            "uid": "s:20~l:28~t:30",
+                            "type": "team",
+                            "order": 1,
+                            "homeAway": "away",
+                            "winner": false,
+                            "team": {
+                                "id": "30",
+                                "uid": "s:20~l:28~t:30",
+                                "location": "Jacksonville",
+                                "name": "Jaguars",
+                                "abbreviation": "JAX",
+                                "displayName": "Jacksonville Jaguars",
+                                "shortDisplayName": "Jaguars",
+                                "color": "00839C",
+                                "alternateColor": "000000",
+                                "isActive": true,
+                                "venue": {
+                                    "id": "3712"
+                                },
+                                "links": [
+                                    {
+                                        "rel": [
+                                            "clubhouse",
+                                            "desktop",
+                                            "team"
+                                        ],
+                                        "href": "https://www.espn.com/nfl/team/_/name/jax/jacksonville-jaguars",
+                                        "text": "Clubhouse",
+                                        "isExternal": false,
+                                        "isPremium": false
+                                    },
+                                    {
+                                        "rel": [
+                                            "roster",
+                                            "desktop",
+                                            "team"
+                                        ],
+                                        "href": "http://www.espn.com/nfl/team/roster/_/name/jax/jacksonville-jaguars",
+                                        "text": "Roster",
+                                        "isExternal": false,
+                                        "isPremium": false
+                                    },
+                                    {
+                                        "rel": [
+                                            "stats",
+                                            "desktop",
+                                            "team"
+                                        ],
+                                        "href": "http://www.espn.com/nfl/team/stats/_/name/jax/jacksonville-jaguars",
+                                        "text": "Statistics",
+                                        "isExternal": false,
+                                        "isPremium": false
+                                    },
+                                    {
+                                        "rel": [
+                                            "schedule",
+                                            "desktop",
+                                            "team"
+                                        ],
+                                        "href": "https://www.espn.com/nfl/team/schedule/_/name/jax",
+                                        "text": "Schedule",
+                                        "isExternal": false,
+                                        "isPremium": false
+                                    },
+                                    {
+                                        "rel": [
+                                            "photos",
+                                            "desktop",
+                                            "team"
+                                        ],
+                                        "href": "https://www.espn.com/nfl/team/photos/_/name/jax",
+                                        "text": "photos",
+                                        "isExternal": false,
+                                        "isPremium": false
+                                    },
+                                    {
+                                        "rel": [
+                                            "scores",
+                                            "sportscenter",
+                                            "app",
+                                            "team"
+                                        ],
+                                        "href": "sportscenter://x-callback-url/showClubhouse?uid=s:20~l:28~t:30&section=scores",
+                                        "text": "Scores",
+                                        "isExternal": false,
+                                        "isPremium": false
+                                    },
+                                    {
+                                        "rel": [
+                                            "draftpicks",
+                                            "desktop",
+                                            "team"
+                                        ],
+                                        "href": "http://www.espn.com/nfl/draft/teams/_/name/jax/jacksonville-jaguars",
+                                        "text": "Draft Picks",
+                                        "isExternal": false,
+                                        "isPremium": true
+                                    },
+                                    {
+                                        "rel": [
+                                            "transactions",
+                                            "desktop",
+                                            "team"
+                                        ],
+                                        "href": "https://www.espn.com/nfl/team/transactions/_/name/jax",
+                                        "text": "Transactions",
+                                        "isExternal": false,
+                                        "isPremium": false
+                                    },
+                                    {
+                                        "rel": [
+                                            "injuries",
+                                            "desktop",
+                                            "team"
+                                        ],
+                                        "href": "https://www.espn.com/nfl/team/injuries/_/name/jax",
+                                        "text": "Injuries",
+                                        "isExternal": false,
+                                        "isPremium": false
+                                    },
+                                    {
+                                        "rel": [
+                                            "depthchart",
+                                            "desktop",
+                                            "team"
+                                        ],
+                                        "href": "https://www.espn.com/nfl/team/depth/_/name/jax",
+                                        "text": "Depth Chart",
+                                        "isExternal": false,
+                                        "isPremium": false
+                                    }
+                                ],
+                                "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/jax.png"
+                            },
+                            "score": "11",
+                            "linescores": [
+                                {
+                                    "value": 0.0
+                                },
+                                {
+                                    "value": 0.0
+                                },
+                                {
+                                    "value": 3.0
+                                },
+                                {
+                                    "value": 8.0
+                                }
+                            ],
+                            "statistics": [],
+                            "records": [
+                                {
+                                    "name": "YTD",
+                                    "abbreviation": "Game",
+                                    "type": "total",
+                                    "summary": "0-1"
+                                },
+                                {
+                                    "name": "Home",
+                                    "type": "home",
+                                    "summary": "0-0"
+                                },
+                                {
+                                    "name": "Road",
+                                    "type": "road",
+                                    "summary": "0-1"
+                                }
+                            ]
+                        }
+                    ],
+                    "notes": [],
+                    "status": {
+                        "clock": 0.0,
+                        "displayClock": "0:00",
+                        "period": 4,
+                        "type": {
+                            "id": "3",
+                            "name": "STATUS_FINAL",
+                            "state": "post",
+                            "completed": true,
+                            "description": "Final",
+                            "detail": "Final",
+                            "shortDetail": "Final"
+                        }
+                    },
+                    "broadcasts": [
+                        {
+                            "market": "national",
+                            "names": [
+                                "NBC"
+                            ]
+                        }
+                    ],
+                    "leaders": [
+                        {
+                            "name": "passingYards",
+                            "displayName": "Passing Leader",
+                            "shortDisplayName": "PASS",
+                            "abbreviation": "PYDS",
+                            "leaders": [
+                                {
+                                    "displayValue": "13-25, 127 YDS, 1 TD",
+                                    "value": 127.0,
+                                    "athlete": {
+                                        "id": "2972092",
+                                        "fullName": "Kyle Sloter",
+                                        "displayName": "Kyle Sloter",
+                                        "shortName": "K. Sloter",
+                                        "links": [
+                                            {
+                                                "rel": [
+                                                    "playercard",
+                                                    "desktop",
+                                                    "athlete"
+                                                ],
+                                                "href": "http://www.espn.com/nfl/player/_/id/2972092/kyle-sloter"
+                                            },
+                                            {
+                                                "rel": [
+                                                    "stats",
+                                                    "desktop",
+                                                    "athlete"
+                                                ],
+                                                "href": "http://www.espn.com/nfl/player/stats/_/id/2972092/kyle-sloter"
+                                            },
+                                            {
+                                                "rel": [
+                                                    "splits",
+                                                    "desktop",
+                                                    "athlete"
+                                                ],
+                                                "href": "http://www.espn.com/nfl/player/splits/_/id/2972092/kyle-sloter"
+                                            },
+                                            {
+                                                "rel": [
+                                                    "gamelog",
+                                                    "desktop",
+                                                    "athlete"
+                                                ],
+                                                "href": "http://www.espn.com/nfl/player/gamelog/_/id/2972092/kyle-sloter"
+                                            },
+                                            {
+                                                "rel": [
+                                                    "news",
+                                                    "desktop",
+                                                    "athlete"
+                                                ],
+                                                "href": "http://www.espn.com/nfl/player/news/_/id/2972092/kyle-sloter"
+                                            },
+                                            {
+                                                "rel": [
+                                                    "bio",
+                                                    "desktop",
+                                                    "athlete"
+                                                ],
+                                                "href": "http://www.espn.com/nfl/player/bio/_/id/2972092/kyle-sloter"
+                                            },
+                                            {
+                                                "rel": [
+                                                    "overview",
+                                                    "desktop",
+                                                    "athlete"
+                                                ],
+                                                "href": "http://www.espn.com/nfl/player/_/id/2972092/kyle-sloter"
+                                            }
+                                        ],
+                                        "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/2972092.png",
+                                        "jersey": "4",
+                                        "position": {
+                                            "abbreviation": "QB"
+                                        },
+                                        "team": {
+                                            "id": "30"
+                                        },
+                                        "active": true
+                                    },
+                                    "team": {
+                                        "id": "30"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "name": "rushingYards",
+                            "displayName": "Rushing Leader",
+                            "shortDisplayName": "RUSH",
+                            "abbreviation": "RYDS",
+                            "leaders": [
+                                {
+                                    "displayValue": "11 CAR, 52 YDS",
+                                    "value": 52.0,
+                                    "athlete": {
+                                        "id": "4361777",
+                                        "fullName": "Zamir White",
+                                        "displayName": "Zamir White",
+                                        "shortName": "Z. White",
+                                        "links": [
+                                            {
+                                                "rel": [
+                                                    "playercard",
+                                                    "desktop",
+                                                    "athlete"
+                                                ],
+                                                "href": "http://www.espn.com/nfl/player/_/id/4361777/zamir-white"
+                                            },
+                                            {
+                                                "rel": [
+                                                    "stats",
+                                                    "desktop",
+                                                    "athlete"
+                                                ],
+                                                "href": "http://www.espn.com/nfl/player/stats/_/id/4361777/zamir-white"
+                                            },
+                                            {
+                                                "rel": [
+                                                    "splits",
+                                                    "desktop",
+                                                    "athlete"
+                                                ],
+                                                "href": "http://www.espn.com/nfl/player/splits/_/id/4361777/zamir-white"
+                                            },
+                                            {
+                                                "rel": [
+                                                    "gamelog",
+                                                    "desktop",
+                                                    "athlete"
+                                                ],
+                                                "href": "http://www.espn.com/nfl/player/gamelog/_/id/4361777/zamir-white"
+                                            },
+                                            {
+                                                "rel": [
+                                                    "news",
+                                                    "desktop",
+                                                    "athlete"
+                                                ],
+                                                "href": "http://www.espn.com/nfl/player/news/_/id/4361777/zamir-white"
+                                            },
+                                            {
+                                                "rel": [
+                                                    "bio",
+                                                    "desktop",
+                                                    "athlete"
+                                                ],
+                                                "href": "http://www.espn.com/nfl/player/bio/_/id/4361777/zamir-white"
+                                            },
+                                            {
+                                                "rel": [
+                                                    "overview",
+                                                    "desktop",
+                                                    "athlete"
+                                                ],
+                                                "href": "http://www.espn.com/nfl/player/_/id/4361777/zamir-white"
+                                            }
+                                        ],
+                                        "jersey": "35",
+                                        "position": {
+                                            "abbreviation": "RB"
+                                        },
+                                        "team": {
+                                            "id": "13"
+                                        },
+                                        "active": true
+                                    },
+                                    "team": {
+                                        "id": "13"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "name": "receivingYards",
+                            "displayName": "Receiving Leader",
+                            "shortDisplayName": "REC",
+                            "abbreviation": "RECYDS",
+                            "leaders": [
+                                {
+                                    "displayValue": "3 REC, 43 YDS",
+                                    "value": 43.0,
+                                    "athlete": {
+                                        "id": "4040612",
+                                        "fullName": "Luke Farrell",
+                                        "displayName": "Luke Farrell",
+                                        "shortName": "L. Farrell",
+                                        "links": [
+                                            {
+                                                "rel": [
+                                                    "playercard",
+                                                    "desktop",
+                                                    "athlete"
+                                                ],
+                                                "href": "http://www.espn.com/nfl/player/_/id/4040612/luke-farrell"
+                                            },
+                                            {
+                                                "rel": [
+                                                    "stats",
+                                                    "desktop",
+                                                    "athlete"
+                                                ],
+                                                "href": "http://www.espn.com/nfl/player/stats/_/id/4040612/luke-farrell"
+                                            },
+                                            {
+                                                "rel": [
+                                                    "splits",
+                                                    "desktop",
+                                                    "athlete"
+                                                ],
+                                                "href": "http://www.espn.com/nfl/player/splits/_/id/4040612/luke-farrell"
+                                            },
+                                            {
+                                                "rel": [
+                                                    "gamelog",
+                                                    "desktop",
+                                                    "athlete"
+                                                ],
+                                                "href": "http://www.espn.com/nfl/player/gamelog/_/id/4040612/luke-farrell"
+                                            },
+                                            {
+                                                "rel": [
+                                                    "news",
+                                                    "desktop",
+                                                    "athlete"
+                                                ],
+                                                "href": "http://www.espn.com/nfl/player/news/_/id/4040612/luke-farrell"
+                                            },
+                                            {
+                                                "rel": [
+                                                    "bio",
+                                                    "desktop",
+                                                    "athlete"
+                                                ],
+                                                "href": "http://www.espn.com/nfl/player/bio/_/id/4040612/luke-farrell"
+                                            },
+                                            {
+                                                "rel": [
+                                                    "overview",
+                                                    "desktop",
+                                                    "athlete"
+                                                ],
+                                                "href": "http://www.espn.com/nfl/player/_/id/4040612/luke-farrell"
+                                            }
+                                        ],
+                                        "headshot": "https://a.espncdn.com/i/headshots/nfl/players/full/4040612.png",
+                                        "jersey": "89",
+                                        "position": {
+                                            "abbreviation": "TE"
+                                        },
+                                        "team": {
+                                            "id": "30"
+                                        },
+                                        "active": true
+                                    },
+                                    "team": {
+                                        "id": "30"
+                                    }
+                                }
+                            ]
+                        }
+                    ],
+                    "format": {
+                        "regulation": {
+                            "periods": 4
+                        }
+                    },
+                    "startDate": "2022-08-05T00:00Z",
+                    "geoBroadcasts": [
+                        {
+                            "type": {
+                                "id": "1",
+                                "shortName": "TV"
+                            },
+                            "market": {
+                                "id": "1",
+                                "type": "National"
+                            },
+                            "media": {
+                                "shortName": "NBC"
+                            },
+                            "lang": "en",
+                            "region": "us"
+                        }
+                    ],
+                    "headlines": [
+                        {
+                            "description": "— The Las Vegas Raiders gave coach Josh McDaniels a successful homecoming in his debut on their sideline.",
+                            "type": "Recap",
+                            "shortLinkText": "Raiders give McDaniels happy homecoming, beat Jaguars 27-11"
+                        }
+                    ]
+                }
+            ],
+            "links": [
+                {
+                    "language": "en-US",
+                    "rel": [
+                        "summary",
+                        "desktop",
+                        "event"
+                    ],
+                    "href": "https://www.espn.com/nfl/game/_/gameId/401437964",
+                    "text": "Gamecast",
+                    "shortText": "Gamecast",
+                    "isExternal": false,
+                    "isPremium": false
+                },
+                {
+                    "language": "en-US",
+                    "rel": [
+                        "boxscore",
+                        "desktop",
+                        "event"
+                    ],
+                    "href": "http://www.espn.com/nfl/boxscore/_/gameId/401437964",
+                    "text": "Box Score",
+                    "shortText": "Box Score",
+                    "isExternal": false,
+                    "isPremium": false
+                },
+                {
+                    "language": "en-US",
+                    "rel": [
+                        "pbp",
+                        "desktop",
+                        "event"
+                    ],
+                    "href": "http://www.espn.com/nfl/playbyplay/_/gameId/401437964",
+                    "text": "Play-by-Play",
+                    "shortText": "Play-by-Play",
+                    "isExternal": false,
+                    "isPremium": false
+                },
+                {
+                    "language": "en-US",
+                    "rel": [
+                        "recap",
+                        "desktop",
+                        "event"
+                    ],
+                    "href": "https://www.espn.com/nfl/recap?gameId=401437964",
+                    "text": "Recap",
+                    "shortText": "Recap",
+                    "isExternal": false,
+                    "isPremium": false
+                }
+            ],
+            "status": {
+                "clock": 0.0,
+                "displayClock": "0:00",
+                "period": 4,
+                "type": {
+                    "id": "3",
+                    "name": "STATUS_FINAL",
+                    "state": "post",
+                    "completed": true,
+                    "description": "Final",
+                    "detail": "Final",
+                    "shortDetail": "Final"
+                }
+            }
+        }
+    ]
+}
