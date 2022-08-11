@@ -14,8 +14,8 @@ SEASON_TYPES = {
 
 
 class API:
-    def __init__(self):
-        self.game_ids = self.get_game_ids()
+    # def __init__(self):
+    #     self.game_ids = self.get_game_ids()
 
     def get_game_ids(self):
         try:
@@ -83,7 +83,7 @@ class API:
         try:
             res = requests.get(URL)
             res = res.json()
-            return res['season']['type'] in SEASON_TYPES
+            return SEASON_TYPES[res['season']['type']]
         except requests.exceptions.RequestException as e:
             print("Error encountered getting game info, can't hit ESPN api, retrying")
             return {}
