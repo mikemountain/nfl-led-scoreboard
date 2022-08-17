@@ -1,14 +1,14 @@
-# nfl-led-scoreboard
+# NFL LED Scoreboard
 ![I promise to change this picture when I actually build my own](imgs/scoreboard.jpg)
 
 Display your favourite NFL team score on an raspberry pi powered LED matrix. Currently supports 64x32 boards only.
 
-### Credit and inpsiration
-This project and my [Fantasy Football scoreboard project](https://github.com/mikemountain/fantasy-football-scoreboard) were inspired by the [nhl-led-scoreboard](https://github.com/riffnshred/nhl-led-scoreboard), who based THEIR project off of the [mlb-led-scoreboard](https://github.com/MLB-LED-Scoreboard/mlb-led-scoreboard). Go check them out, and start watching hockey if you don't already (and baseball too but I love hockey more (go Leafs!)).
+### Fantasy Football
+Love football? Have a fantasy team? Check out my [Fantasy Football scoreboard project](https://github.com/mikemountain/fantasy-football-scoreboard)
 
 ### Donate
 <a href="https://paypal.me/themikemountain/"><img src="https://github.com/andreostrovsky/donate-with-paypal/blob/master/dark.svg" height="40"></a>  
-If you enjoyed this project, my NFL project, or if you're just feeling generous, consider buying me a beer. Cheers! :beers: 
+If you enjoyed this project, my [fantasy football project](https://github.com/mikemountain/fantasy-football-scoreboard), or if you're just feeling generous, consider buying me a beer. Cheers! :beers: 
 You can also PM me on reddit under /u/mikemountain if you need help but don't think it requires an issue!
 
 ## Features (v0.1.0)
@@ -122,3 +122,6 @@ Use the same flags used in the [rpi-rgb-led-matrix](https://github.com/hzeller/r
 
 ## Licensing
 This project uses the GNU General Public License v3.0. If you intend to sell these, the code must remain open source and you at least have to tell people how cool I am (please, I need this).
+
+## Inspiration
+This project was inspired by the [nhl-led-scoreboard](https://github.com/riffnshred/nhl-led-scoreboard). Go check them out, and start watching hockey if you don't already (go Leafs!).
