@@ -11,7 +11,7 @@ Love football? Have a fantasy team? Check out my [Fantasy Football scoreboard pr
 If you enjoyed this project, my [fantasy football project](https://github.com/mikemountain/fantasy-football-scoreboard), or if you're just feeling generous, consider buying me a beer. Cheers! :beers: 
 You can also PM me on reddit under /u/mikemountain if you need help but don't think it requires an issue!
 
-## Features (v0.1.0)
+## Features (v1.0.0)
 
 ### GAME ROTATION
 Hey, neat-o! You can rotate through multiple games now if you want to! Will still need some finessing, but definitely an improvement.
@@ -36,7 +36,7 @@ Nothing yet because I didn't even think the season would start because of COVID.
 Future plans include:
 * team colours for the score/possession maybe?
 * better/more gifs I guess?
-* general stability? I actually achieved all the goals I set out to do with this thing so I dunno what else I wanna do.
+* gifs on rotation?
 
 ## Installation
 ### Hardware Assembly

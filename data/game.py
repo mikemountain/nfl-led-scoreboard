@@ -7,6 +7,7 @@ import api
 
 GAME_UPDATE_RATE = 10
 
+
 class Game:
     def __init__(self, game_id, date):
         self.game_id = game_id
@@ -21,7 +22,8 @@ class Game:
                 debug.log("Fetching data for game %s", str(self.game_id))
                 self._data = api.get_game(self.game_id)
             except:
-                debug.exception("API error, failed to get game info for game %s", str(self.game_id))
+                debug.exception(
+                    "API error, failed to get game info for game %s", str(self.game_id))
                 return "fail"
 
     def datetime(self):
@@ -30,7 +32,7 @@ class Game:
 
     def home_name(self):
         pass
-    
+
     def home_abbr(self):
         return self._data['home_abbr']
 
@@ -57,7 +59,7 @@ class Game:
 
     def quarter_state(self):
         pass
-    
+
     def quarter_number(self):
         return self._data['quarter']
 
@@ -67,7 +69,7 @@ class Game:
     def down_number(self):
         down = self._data['down']
         return re.sub(r'[a-z]+', '', down).replace(' ', '')
-    
+
     def yards_to_gain(self):
         return self._data['spot'].replace(' ', '')
 

@@ -1,6 +1,7 @@
 {
 	"preferred": {
-		"teams": ["BUF", "NO", "TB"]
+		"teams": ["BUF", "NO", "TB"],
+		"divisions": ["AFC East"]
 	},
 	"rotation": {
 		"enabled": true,
@@ -15,7 +16,10 @@
 			"during_halftime": false
 		}
 	},
-    "scrolling_speed": 2,
-    "use_helmet_logos": true,
-    "debug": "true"
+	"time_format": "12h",
+	"end_of_day": "00:00",
+	"scrolling_speed": 2,
+    "use_helmet_logos": false,
+    "debug": true,
+	"demo_date": false
 }
