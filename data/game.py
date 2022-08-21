@@ -3,7 +3,7 @@ import re
 from datetime import datetime
 
 import debug
-import api
+import data.api as api
 
 GAME_UPDATE_RATE = 10
 

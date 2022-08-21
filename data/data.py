@@ -16,7 +16,7 @@ class Data:
         self.helmet_logos = self.config.helmet_logos
         
         # Parse today's date and see if we should use today or yesterday
-        self.get_current_date()
+        self.today = self.get_current_date()
         # Fetch the teams info
         self.refresh_games()
 

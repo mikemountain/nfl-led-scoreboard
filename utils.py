@@ -8,17 +8,14 @@ from collections.abc import Mapping
 
 import debug
 
-# get local timezone
-local_tz = get_localzone()
-
 
 def get_file(path):
     dir = os.path.dirname(__file__)
     return os.path.join(dir, path)
 
 
-def center_text(text_width, center_pos):
-    return abs(center_pos - (text_width / 2))
+def center_text_position(text, center_pos, font_width):
+    return abs(center_pos - ((len(text) * font_width) // 2))
 
 
 def split_string(string, num_chars):
@@ -203,7 +200,6 @@ def deep_update(source, overrides):
 
 
 def convert_time(utc_dt):
-
     local_dt = datetime.datetime.strptime(
         utc_dt, '%Y-%m-%dT%H:%M:%SZ').replace(tzinfo=pytz.utc).astimezone(local_tz)
     return local_tz.normalize(local_dt)  # .normalize might be unnecessary

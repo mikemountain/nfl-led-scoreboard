@@ -18,17 +18,14 @@ class Layout:
         self.height = height
         self.state = None
         self.default_font_name = FONTNAME_DEFAULT
-        self.default_font_name = self.coords("defaults.font_name")
 
         self.font_cache = {}
         default_font = self.__load_font(self.default_font_name)
         self.font_cache = {self.default_font_name: default_font}
 
-    # Returns a dictionary with "font" and "size"
-    def font(self, keypath):
-        d = self.coords(keypath)
+    def font(self, font_name):
         try:
-            return self.__get_font_object(d[FONTNAME_KEY])
+            return self.__get_font_object(font_name)
         except KeyboardInterrupt as e:
             raise e
         except:
@@ -38,7 +35,7 @@ class Layout:
         if font_name in self.font_cache:
             return self.font_cache[font_name]
 
-        font_paths = ["assets/fonts/patched", "submodules/matrix/fonts"]
+        font_paths = ["assets/fonts", "submodules/matrix/fonts"]
         for font_path in font_paths:
             path = f"{font_path}/{font_name}.bdf"
             if os.path.isfile(path):

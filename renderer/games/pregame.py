@@ -10,15 +10,15 @@ from utils import center_text_position
 
 # fuckin do this later
 def render_pregame(canvas, layout: Layout, pregame: Pregame):
-    time = self.data.get_current_date()
-    gamedatetime = self.data.get_gametime()
-    if gamedatetime.day == time.day:
-        date_text = 'TODAY'
-    else:
-        date_text = gamedatetime.strftime('%A %-d %b').upper()
-    gametime = gamedatetime.strftime("%-I:%M %p")
+    time_text = pregame.start_time
+    date_text = pregame.date
+    small_font = layout.font('small_font.bdf')
+    vs_font = layout.font('score_font.bdf')
+
+    time_x = center_text_position(time_text, 32, small_font["size"]["width"])
+    date_x = center_text_position(date_text, 32, small_font["size"]["width"])
     # Center the game time on screen.                
-    date_pos = center_text(self.font_mini.getsize(date_text)[0], 32)
+    date_pos = center_text_position(self.font_mini.getsize(date_text)[0], 32)
     gametime_pos = center_text(self.font_mini.getsize(gametime)[0], 32)
     # Draw the text on the Data image.
     self.draw.text((date_pos, 0), date_text, font=self.font_mini)

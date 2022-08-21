@@ -1,5 +1,6 @@
 import tzlocal
 
+import data
 from data.game import Game
 
 
@@ -8,6 +9,8 @@ class Pregame:
         self.home_team = game.home_abbr()
         self.away_team = game.away_abbr()
         self.time_format = time_format
+
+        self.date = self.__convert_date(game.datetime())
 
         try:
             self.start_time = self.__convert_time(game.datetime())
@@ -22,6 +25,12 @@ class Pregame:
         if self.time_format == "%-I":
             time_str += "%p"
         return game_time_utc.astimezone(tzlocal.get_localzone()).strftime(time_str)
+
+    def __convert_date(self, game_time_utc):
+        date_text = game_time_utc.astimezone(tzlocal.get_localzone()).strftime('%a')
+        if date_text == data.today.astimezone(tzlocal.get_localzone()).strftime('%a'):
+            date_text = 'TODAY'
+        return date_text
 
     def __str__(self):
         s = "<{} {}> {} @ {}; {};".format(

@@ -1,8 +1,8 @@
 import time
 from datetime import datetime, timedelta
 
-import api
 import debug
+import data.api as api
 from data.game import Game
 
 SCHEDULE_REFRESH_RATE = 6 * 60

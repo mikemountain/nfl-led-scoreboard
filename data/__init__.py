@@ -2,7 +2,7 @@ import time
 
 import data.config.layout as layout
 import debug
-from data import status
+# from data import status
 from data.game import Game
 from data.schedule import Schedule
 from data.scoreboard import Scoreboard
