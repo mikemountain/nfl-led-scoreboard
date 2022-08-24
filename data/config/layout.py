@@ -12,8 +12,8 @@ AVAILABLE_OPTIONAL_KEYS = [FONTNAME_KEY]
 
 
 class Layout:
-    def __init__(self, layout_json, width, height):
-        self.json = layout_json
+    def __init__(self, width, height):
+        # self.json = layout_json
         self.width = width
         self.height = height
         self.state = None

@@ -25,7 +25,7 @@ class Config:
 
         # Rotation
         self.rotation_enabled = json["rotation"]["enabled"]
-        self.rotation_scroll_until_finished = json["rotation"]["scroll_until_finished"]
+        # self.rotation_scroll_until_finished = json["rotation"]["scroll_until_finished"]
         self.rotation_only_preferred = json["rotation"]["only_preferred"]
         self.rotation_only_live = json["rotation"]["only_live"]
         self.rotation_rates = json["rotation"]["rates"]
@@ -49,8 +49,8 @@ class Config:
             self.scrolling_speed = SCROLLING_SPEEDS[DEFAULT_SCROLLING_SPEED]
 
         # Get the layout info
-        json = self.__get_layout(width, height)
-        self.layout = Layout(json, width, height)
+        # json = self.__get_layout(width, height)
+        self.layout = Layout(width, height)
 
         # Check the preferred teams and divisions are a list or a string
         self.check_time_format()

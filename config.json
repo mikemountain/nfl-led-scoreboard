@@ -6,6 +6,7 @@
 	"rotation": {
 		"enabled": true,
 		"only_preferred": false,
+		"only_live": false,
 		"rates": {
 			"live": 15.0,
 			"final": 10.0,

@@ -2,16 +2,16 @@ import time
 from typing import NoReturn
 
 import debug
-from data import Data, status
+from data import Data
 from data.scoreboard import Scoreboard
 from data.scoreboard.postgame import Postgame
 from data.scoreboard.pregame import Pregame
-from renderer import network
-from renderer.games import game as gamerender
-from renderer.games import irregular
-from renderer.games import postgame as postgamerender
+# from renderer import network
+# from renderer.games import game as gamerender
+# from renderer.games import irregular
+# from renderer.games import postgame as postgamerender
 from renderer.games import pregame as pregamerender
-from renderer.games import teams
+# from renderer.games import teams
 
 
 class MainRenderer:
@@ -60,7 +60,6 @@ class MainRenderer:
             # self.__max_scroll_x(layout.coords("pregame.scrolling_text"))
             pregame = Pregame(game, self.data.config.time_format)
             pos = pregamerender.render_pregame(self.canvas, layout, pregame)
-            self.__update_scrolling_text_pos(pos, self.canvas.width)
 
         elif status.is_complete(game.status()):  # Draw the game summary
             self.__max_scroll_x(layout.coords("final.scrolling_text"))
@@ -83,21 +82,26 @@ class MainRenderer:
                     self.canvas, layout, colors, scoreboard, short_text)
                 self.data.scrolling_finished = True
 
-        else:  # draw a live game
-            if scoreboard.homerun() or scoreboard.strikeout():
-                self.animation_time += 1
-            else:
-                self.animation_time = 0
+        # testing
+        else:
+            pregame = Pregame(game, self.data.config.time_format)
+            pos = pregamerender.render_pregame(self.canvas, layout, pregame)
 
-            loop_point = self.data.config.layout.coords("atbat")["loop"]
-            self.scrolling_text_pos = min(self.scrolling_text_pos, loop_point)
-            pos = gamerender.render_live_game(
-                self.canvas, layout, colors, scoreboard, self.scrolling_text_pos, self.animation_time
-            )
-            self.__update_scrolling_text_pos(pos, loop_point)
+        # else:  # draw a live game
+        #     if scoreboard.homerun() or scoreboard.strikeout():
+        #         self.animation_time += 1
+        #     else:
+        #         self.animation_time = 0
+
+        #     loop_point = self.data.config.layout.coords("atbat")["loop"]
+        #     self.scrolling_text_pos = min(self.scrolling_text_pos, loop_point)
+        #     pos = gamerender.render_live_game(
+        #         self.canvas, layout, colors, scoreboard, self.scrolling_text_pos, self.animation_time
+        #     )
+        #     self.__update_scrolling_text_pos(pos, loop_point)
 
         # Show network issues
-        if self.data.network_issues:
-            network.render_network_error(self.canvas, layout, colors)
+        # if self.data.network_issues:
+        #     network.render_network_error(self.canvas, layout, colors)
 
         self.canvas = self.matrix.SwapOnVSync(self.canvas)
