@@ -1,6 +1,7 @@
 import enum
 import time
 from datetime import datetime, timedelta
+from pprint import pprint
 
 import debug
 import data.api as api
@@ -64,6 +65,7 @@ class Schedule:
                 for i, game in enumerate(self._games):
                     if team_name == game:
                         print(i, game, team_name)
+                pprint(game)
                 team_idxs = [i for i, game in enumerate(self._games) if team_name in [game["away_name"], game["home_name"]]]
                 if len(team_idxs) > 0:
                     team_index = next((i for i in team_idxs if self._games[i]["status"] == 'in'), team_idxs[0],)

@@ -5,13 +5,13 @@
 	},
 	"rotation": {
 		"enabled": true,
-		"only_preferred": false,
+		"rotate_through_preferred_only": false,
 		"rates": {
-			"live": 15.0,
-			"final": 10.0,
-			"pregame": 10.0
+			"live": 20.0,
+			"final": 5.0,
+			"pregame": 5.0
 		},
-		"while_preferred_team_live": {
+		"rotate_while_preferred_team_live": {
 			"enabled": false,
 			"during_halftime": false
 		}

@@ -391,8 +391,8 @@ class MainRenderer:
     def _draw_td(self):
         debug.info('TD')
         # Load the gif file
-        ball = Image.open("assets/td_ball.gif")
-        words = Image.open("assets/td_words.gif")
+        ball = Image.open("assets/animations/td_ball.gif")
+        words = Image.open("assets/animations/td_words.gif")
         # Set the frame index to 0
         frameNo = 0
         self.canvas.Clear()
@@ -425,7 +425,7 @@ class MainRenderer:
     def _draw_fg(self):
         debug.info('FG')
         # Load the gif file
-        im = Image.open("assets/fg.gif")
+        im = Image.open("assets/animations/fg.gif")
         # Set the frame index to 0
         frameNo = 0
         self.canvas.Clear()

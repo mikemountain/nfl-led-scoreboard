@@ -18,17 +18,17 @@ from renderer.main import MainRenderer
 from utils import args, led_matrix_options
 from version import SCRIPT_NAME, SCRIPT_VERSION
 
-# try:
-#     from rgbmatrix import RGBMatrix, __version__
+try:
+    from rgbmatrix import RGBMatrix, __version__
 
-#     emulated = False
-# except ImportError:
-#     from RGBMatrixEmulator import RGBMatrix, version
+    emulated = False
+except ImportError:
+    from RGBMatrixEmulator import RGBMatrix, version
 
-#     emulated = True
-from RGBMatrixEmulator import RGBMatrix, version
+    emulated = True
+# from RGBMatrixEmulator import RGBMatrix, version
 
-emulated = True
+# emulated = True
 
 def main(matrix, config_base):
 
