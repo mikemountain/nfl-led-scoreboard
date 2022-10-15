@@ -1,4 +1,5 @@
 from datetime import datetime, timedelta
+from collections import deque
 import time as t
 import nfl_api_parser as nflparser
 import debug
@@ -30,6 +31,9 @@ class Data:
         self.current_division_index = 0
         # self.scores = {}
 
+        # This queue will contain all games that just had scores occur
+        self.priority_queue = deque([])
+
     def get_current_date(self):
         return datetime.utcnow()
     
@@ -49,6 +53,8 @@ class Data:
                     self.games = self.__filter_list_of_games(all_games, [self.config.preferred_teams[0]])
                 else:
                     self.games = all_games
+
+                self.priority_queue = self.__filter_scoring_events(self.games)
 
                 self.games_refresh_time = t.time()
                 self.network_issues = False
@@ -116,6 +122,9 @@ class Data:
     def advance_to_next_game(self):
         self.current_game_index = self.__next_game_index()
         return self.current_game()
+    
+    def advance_to_priority_game(self):
+        return self.priority_queue.popleft()
 
     # def game_index_for_preferred_team(self):
     #     if self.config.preferred_teams:
@@ -125,6 +134,9 @@ class Data:
 
     def __filter_list_of_games(self, games, teams):
         return list(game for game in games if set([game['awayteam'], game['hometeam']]).intersection(set(teams)))
+
+    def __filter_scoring_events(self, games):
+        return deque(game for game in games if games['scoring_event'] in ['FG', 'TD'])
 
     # def __game_index_for(self, team_name):
     #     team_index = 0
