@@ -18,6 +18,10 @@ def center_text_position(text, center_pos, font_width):
     return abs(center_pos - ((len(text) * font_width) // 2))
 
 
+def center_text(text_width, center_pos):
+    return abs(center_pos - (text_width / 2))
+
+
 def split_string(string, num_chars):
     return [(string[i:i + num_chars]).strip() for i in range(0, len(string), num_chars)]
 
