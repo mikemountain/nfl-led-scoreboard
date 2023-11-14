@@ -11,8 +11,8 @@
 			"pregame": 10.0
 		},
 		"while_preferred_team_live": {
-			"enabled": false,
-			"during_halftime": false
+			"enabled": true,
+			"during_halftime": true
 		}
 	},
     "scrolling_speed": 2,

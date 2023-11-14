@@ -214,12 +214,12 @@ class MainRenderer:
             self.data.refresh_games()
             self.data.needs_refresh = False
         # Use this code if you want the animations to run
-        if game['homescore'] > homescore + 5 or game['awayscore'] > awayscore + 5:
-            debug.info('should draw TD')
-            self._draw_td()
-        elif game['homescore'] > homescore + 2 or game['awayscore'] > awayscore + 2:
-            debug.info('should draw FG')
-            self._draw_fg()
+        # if game['homescore'] > homescore + 5 or game['awayscore'] > awayscore + 5:
+        #     debug.info('should draw TD')
+        #     self._draw_td()
+        # elif game['homescore'] > homescore + 2 or game['awayscore'] > awayscore + 2:
+        #     debug.info('should draw FG')
+        #     self._draw_fg()
         # Prepare the data
         # score = '{}-{}'.format(overview['awayscore'], overview['homescore'])
         if game['possession'] == game['awayid']:
@@ -228,21 +228,7 @@ class MainRenderer:
             pos = game['hometeam']
         quarter = str(game['quarter'])
         time_period = game['time']
-        # this is ugly but I want to replace the possession info with down info and spot info
-        down = None
-        spot = None
-        game_info = None
-        if game['down']:
-            down = re.sub(r"[a-z]+", "", game['down']).replace(" ", "")
-            info_pos = center_text(self.font_mini.getsize(str(down))[0], 32)
-            self.draw.multiline_text((info_pos, 19), str(down), fill=(255, 255, 255), font=self.font_mini, align="center")
-        if game['spot']:
-            spot = game['spot'].replace(" ", "")
-            info_pos = center_text(self.font_mini.getsize(spot)[0], 32)
-            self.draw.multiline_text((info_pos, 25), spot, fill=(255, 255, 255), font=self.font_mini, align="center")
-        pos_colour = (255, 255, 255)
-        if game['redzone']:
-            pos_colour = (255, 25, 25)
+        
         # Set the position of the information on screen.
         homescore = '{0:02d}'.format(homescore)
         awayscore = '{0:02d}'.format(awayscore)
@@ -352,57 +338,57 @@ class MainRenderer:
         self.image = Image.new('RGB', (self.width, self.height))
         self.draw = ImageDraw.Draw(self.image)
 
-    def _draw_td(self):
-        debug.info('TD')
-        # Load the gif file
-        ball = Image.open("assets/td_ball.gif")
-        words = Image.open("assets/td_words.gif")
-        # Set the frame index to 0
-        frameNo = 0
-        self.canvas.Clear()
-        # Go through the frames
-        x = 0
-        while x is not 3:
-            try:
-                ball.seek(frameNo)
-            except EOFError:
-                x += 1
-                frameNo = 0
-                ball.seek(frameNo)
-            self.canvas.SetImage(ball.convert('RGB'), 0, 0)
-            self.canvas = self.matrix.SwapOnVSync(self.canvas)
-            frameNo += 1
-            t.sleep(0.05)
-        x = 0
-        while x is not 3:
-            try:
-                words.seek(frameNo)
-            except EOFError:
-                x += 1
-                frameNo = 0
-                words.seek(frameNo)
-            self.canvas.SetImage(words.convert('RGB'), 0, 0)
-            self.canvas = self.matrix.SwapOnVSync(self.canvas)
-            frameNo += 1
-            t.sleep(0.05)
+    # def _draw_td(self):
+    #     debug.info('TD')
+    #     # Load the gif file
+    #     ball = Image.open("assets/td_ball.gif")
+    #     words = Image.open("assets/td_words.gif")
+    #     # Set the frame index to 0
+    #     frameNo = 0
+    #     self.canvas.Clear()
+    #     # Go through the frames
+    #     x = 0
+    #     while x is not 3:
+    #         try:
+    #             ball.seek(frameNo)
+    #         except EOFError:
+    #             x += 1
+    #             frameNo = 0
+    #             ball.seek(frameNo)
+    #         self.canvas.SetImage(ball.convert('RGB'), 0, 0)
+    #         self.canvas = self.matrix.SwapOnVSync(self.canvas)
+    #         frameNo += 1
+    #         t.sleep(0.05)
+    #     x = 0
+    #     while x is not 3:
+    #         try:
+    #             words.seek(frameNo)
+    #         except EOFError:
+    #             x += 1
+    #             frameNo = 0
+    #             words.seek(frameNo)
+    #         self.canvas.SetImage(words.convert('RGB'), 0, 0)
+    #         self.canvas = self.matrix.SwapOnVSync(self.canvas)
+    #         frameNo += 1
+    #         t.sleep(0.05)
 
-    def _draw_fg(self):
-        debug.info('FG')
-        # Load the gif file
-        im = Image.open("assets/fg.gif")
-        # Set the frame index to 0
-        frameNo = 0
-        self.canvas.Clear()
-        # Go through the frames
-        x = 0
-        while x is not 3:
-            try:
-                im.seek(frameNo)
-            except EOFError:
-                x += 1
-                frameNo = 0
-                im.seek(frameNo)
-            self.canvas.SetImage(im.convert('RGB'), 0, 0)
-            self.canvas = self.matrix.SwapOnVSync(self.canvas)
-            frameNo += 1
-            t.sleep(0.02)
+    # def _draw_fg(self):
+    #     debug.info('FG')
+    #     # Load the gif file
+    #     im = Image.open("assets/fg.gif")
+    #     # Set the frame index to 0
+    #     frameNo = 0
+    #     self.canvas.Clear()
+    #     # Go through the frames
+    #     x = 0
+    #     while x is not 3:
+    #         try:
+    #             im.seek(frameNo)
+    #         except EOFError:
+    #             x += 1
+    #             frameNo = 0
+    #             im.seek(frameNo)
+    #         self.canvas.SetImage(im.convert('RGB'), 0, 0)
+    #         self.canvas = self.matrix.SwapOnVSync(self.canvas)
+    #         frameNo += 1
+    #         t.sleep(0.02)

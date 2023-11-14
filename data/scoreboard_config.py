@@ -2,7 +2,7 @@ from utils import get_file
 import json
 import os
 
-DEFAULT_PREFERRED_TEAMS = ["BUF", "NO"]
+DEFAULT_PREFERRED_TEAMS = ["CLE", "NO"]
 DEFAULT_SCROLLING_SPEED = 2
 DEFAULT_ROTATE_RATE = 15.0
 MINIMUM_ROTATE_RATE = 2.0
